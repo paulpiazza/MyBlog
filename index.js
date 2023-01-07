@@ -3,6 +3,7 @@ const app = express()
 const path = require('path')
 const db = require('./src/mongodb/mongodb')
 const bodyParser = require('body-parser')
+require('dotenv').config()
 const port = 3000
 
 app.use(express.static(path.join(__dirname, 'public')))

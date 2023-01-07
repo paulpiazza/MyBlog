@@ -1,7 +1,7 @@
 const mg = require('mongoose');
+require('dotenv').config()
 
 const uri = process.env.MONGODB_URI;
-
 mg.connect(uri).then(() => {
   console.log(`Connexion established!`)
 }).catch(err => {

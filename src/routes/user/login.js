@@ -16,7 +16,7 @@ module.exports = (app) => {
           res.status(400).json({ message: 'bad credentials' })
         }
 
-        const token = jwt.sign({ user: user.email }, privateKey, { expiresIn: '6h' })
+        const token = jwt.sign({ email: user.email }, privateKey, { expiresIn: '6h' })
 
         const message = `Login success!`
         res.json({ message, data: user, token })
