@@ -1,5 +1,7 @@
+const auth = require('../../auth/auth')
+
 module.exports = (app) => {
-  app.get('/profile/:id', (req, res) => {
+  app.get('/profile/:id', auth, (req, res) => {
     const User = require('../../models/User.js')
 
     const userId = req.params.id

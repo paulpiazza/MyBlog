@@ -1,5 +1,7 @@
+const auth = require('../../auth/auth')
+
 module.exports = (app) => {
-  app.delete('/users/:id/delete', (req, res) => {
+  app.delete('/users/:id/delete', auth, (req, res) => {
     const User = require('../../models/User.js')
 
     const userId = req.params.id

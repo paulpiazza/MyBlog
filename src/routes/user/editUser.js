@@ -1,6 +1,8 @@
+const auth = require('../../auth/auth')
+
 module.exports = (app) => {
 
-  app.put('/users/:id/update', async (req, res) => {
+  app.put('/users/:id/update', auth, async (req, res) => {
     const User = require('../../models/User.js')
     const bcrypt = require('bcrypt')
 

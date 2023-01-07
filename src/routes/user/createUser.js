@@ -11,11 +11,9 @@ module.exports = (app) => {
       }
 
       const user = new User(newUser)
-
-      res.json({ user })
-
+      
       user.save().then((userCreated) => {
-        const message = `New user created with email address: ${userCreated.email}`
+        const message = `New user created with email address: ${userCreated.email}. You can now login and get your token.`
         res.json({ message, data: userCreated })
       })
 

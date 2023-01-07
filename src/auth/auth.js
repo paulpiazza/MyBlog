@@ -1,4 +1,5 @@
 require('dotenv').config()
+const jwt = require('jsonwebtoken')
 
 module.exports = (req, res, next) => {
 
@@ -14,12 +15,12 @@ module.exports = (req, res, next) => {
     const privateKey = process.env.PRIVATE_KEY_JWT_TOKEN
 
     jwt.verify(token, privateKey, function(err, decoded) {
-        if(error) {
+        if(err) {
             const message = `Unauthorized`
-            return res.status(401).json({ message, data: error })
+            return res.status(401).json({ message, data: err })
         }
   
-        const emailUser = decodedToken.email
+        const emailUser = decoded.email
 
         if (req.body.email && req.body.email !== emailUser) {
             const message = `Email invalid`
@@ -28,6 +29,4 @@ module.exports = (req, res, next) => {
             next()
         }
   })
-
-    });
 }

@@ -1,5 +1,7 @@
+const auth = require('../../auth/auth')
+
 module.exports = (app) => {
-  app.get('/users', (req, res) => {
+  app.get('/users', auth, (req, res) => {
     const User = require('../../models/User.js')
 
     User.find()
