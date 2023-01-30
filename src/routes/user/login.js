@@ -1,5 +1,10 @@
 module.exports = (app) => {
-  app.post('/users/login', (req, res) => {
+
+  const ExpressBrute = require('express-brute')
+  const store = new ExpressBrute.MemoryStore();
+  const bruteforce = new ExpressBrute(store);
+
+  app.post('/users/login', bruteforce.prevent, (req, res) => {
     const User = require('../../models/User.js')
     const bcrypt = require('bcrypt')
     const jwt = require('jsonwebtoken')

@@ -4,7 +4,10 @@ const path = require('path')
 const db = require('./src/mongodb/mongodb')
 const bodyParser = require('body-parser')
 require('dotenv').config()
+const helmet = require('helmet')
 const port = 3000
+
+app.use(helmet())
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
