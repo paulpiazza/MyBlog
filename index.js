@@ -5,7 +5,7 @@ const db = require('./src/mongodb/mongodb')
 const bodyParser = require('body-parser')
 require('dotenv').config()
 const helmet = require('helmet')
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.use(helmet())
 
@@ -53,4 +53,5 @@ require(path.join(sourcesUsers, 'login'))(app)
 
 app.listen(port, _ => {
   console.log(`server listen on port: ${port}`)
+  console.log(process.env.NODE_ENV)
 })
