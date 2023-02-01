@@ -55,3 +55,5 @@ app.listen(port, _ => {
   console.log(`server listen on port: ${port}`)
   console.log(process.env.NODE_ENV)
 })
+
+module.exports = app
