@@ -7,6 +7,8 @@ require('dotenv').config()
 const helmet = require('helmet')
 const port = process.env.PORT || 3000
 
+db.connect()
+
 app.use(helmet())
 
 app.use(express.static(path.join(__dirname, 'public')))
@@ -54,6 +56,7 @@ require(path.join(sourcesUsers, 'login'))(app)
 app.listen(port, _ => {
   console.log(`server listen on port: ${port}`)
   console.log(`Environnement: ${process.env.NODE_ENV}`)
+
 })
 
 module.exports = app

@@ -18,3 +18,6 @@ Après avoir cloné le projet sur GitHub, placez vous dans le dépôt et install
 cd nom/du/depot
 npm install
 ```
+
+## CI/CD
+[todo](https://semaphoreci.com/community/tutorials/getting-started-with-node-js-and-mocha#h-continuous-integration-for-nodejs)

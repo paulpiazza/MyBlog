@@ -1,20 +1,35 @@
-const mg = require('mongoose');
+const mg = require('mongoose')
 require('dotenv').config()
 
-const uri = process.env.NODE_ENV && process.env.NODE_ENV === "Prod" ? process.env.MONGODB_URI : process.env.MONGODB_URI_TEST
 
-mg.connect(uri).then(async () => {
-  
-  if(process.env.NODE_ENV !== 'Prd') {
+async function connect() {
+
+  let uri = process.env.MONGODB_URI_DEV
+
+  if (process.env.NODE_ENV && process.env.NODE_ENV === "prod") {
+    uri = process.env.MONGODB_URI
+  }
+
+  if (process.env.NODE_ENV === "test") {
+    uri = process.env.MONGODB_URI
+  }
+  console.log(`Database: ${uri}`)
+  try {
+    await mg.connect(uri)
+
     console.log(`Database: ${uri}`)
     console.log(`Connexion with db established!`)
 
-    await require('../../fixtures/usersFixtures')()
+    if (process.env.NODE_ENV === 'dev') {
+      await require('../../fixtures/usersFixtures')()
+    }
 
+    return mg
+
+  } catch(err) {
+    console.log(`Connexion error: ${err}`)
   }
 
-}).catch(err => {
-  console.log(`Connexion error: ${err}`)
-})
+}
 
-module.exports = mg
+module.exports = { connect }

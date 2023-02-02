@@ -5,7 +5,14 @@ const saltRounds = 10;
 
 
 module.exports = async () => {
+
+    const count = await User.find().count()
     
+    if(count > 0) {
+        await User.deleteMany()
+        await User.syncIndexes()
+    }
+
     const users = [
         {
             email: "admin@myblog.net",
@@ -19,11 +26,11 @@ module.exports = async () => {
 
     User.insertMany(users, (err, docs) => {
        if(err) {
-           console.error("Loading fixtures Users failed", err)
+           console.error("Loading fixtures Users failed.", err)
            return
        }
 
-       console.info(`new stock ${docs.length} fixtures added`)
+       console.info(`${docs.length} Users fixtures added.`)
         
     })
 }

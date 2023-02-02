@@ -4,18 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "export PORT=3500 && export NODE_ENV=dev && nodemon ./index.js",
-    "test": "export PORT=3501 && export NODE_ENV=test && node ./index.js && mocha",
-    "prod": "export PORT=3000 && export NODE_ENV=prod && node ./index.js"
+    "dev": "PORT=3500 NODE_ENV=dev nodemon ./index.js",
+    "test": "PORT=3505 NODE_ENV=test mocha",
+    "prod": "PORT=3000 NODE_ENV=prod node ./index.js"
   },
   "keywords": [],
   "author": "Paul Piazza",
   "license": "ISC",
   "dependencies": {
-    "@types/node": "^18.0.6",
+    "@types/node": "^18.0.6s",
     "bcrypt": "^5.1.0",
     "body-parser": "^1.20.1",
     "dotenv": "^16.0.3",
+    "dotenv-cli": "^7.0.0",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
     "express-brute": "^1.0.1",
