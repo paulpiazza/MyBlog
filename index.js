@@ -18,13 +18,13 @@ app.set('view engine', 'ejs')
 //todo : use Route() from Express
 const sources = path.join(__dirname, 'src', 'routes')
 
+
+
 // GET root
 const sourcesRoot = path.join(sources, 'root')
 require(path.join(sourcesRoot, 'main.js'))(app)
 require(path.join(sourcesRoot, 'signin.js'))(app)
 require(path.join(sourcesRoot, 'login.js'))(app)
-
-
 
 // post
 const sourcesPost = path.join(sources, 'post')
@@ -53,7 +53,7 @@ require(path.join(sourcesUsers, 'login'))(app)
 
 app.listen(port, _ => {
   console.log(`server listen on port: ${port}`)
-  console.log(process.env.NODE_ENV)
+  console.log(`Environnement: ${process.env.NODE_ENV}`)
 })
 
 module.exports = app
