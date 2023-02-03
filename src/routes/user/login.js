@@ -20,9 +20,9 @@ module.exports = (app) => {
       .withMessage('enter a valid email'),
 
     body('password')
-      .escape().trim().isLength({ min: 8, max: 12 })
+      .trim().isLength({ min: 8, max: 12 })
       .isStrongPassword()
-      .withMessage('between 8 and 12 characters'),
+      .withMessage('between 8 and 12 characters.'),
 
     (req, res) => {
 
