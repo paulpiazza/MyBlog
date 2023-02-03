@@ -27,7 +27,7 @@ describe('when the client try to log in /users/login', function () {
 
         try {
             const docs = await User.insertMany(users)
-            
+
             console.info(`${docs.length} Users fixtures added.\n`)
 
         } catch(err) {
@@ -48,6 +48,20 @@ describe('when the client try to log in /users/login', function () {
                 assert.equal(res.status, 200)
                 assert.property(res.body, 'token', 'http response have token')
                 assert.isNotEmpty(res.body.token, 'token is not an empty string')
+                done()
+            })
+    })
+
+    it('should get error 400', function (done) {
+        chai
+            .request(app)
+            .post('/users/login')
+            .send({
+                email: "user@myblog.net",
+                password: 'a'
+            })
+            .end((err, res) => {
+                assert.equal(res.status, 400)
                 done()
             })
     })
