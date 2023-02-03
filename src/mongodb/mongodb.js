@@ -13,7 +13,8 @@ async function connect() {
   if (process.env.NODE_ENV === "test") {
     uri = process.env.MONGODB_URI
   }
-  console.log(`Database: ${uri}`)
+
+  
   try {
     await mg.connect(uri)
 
