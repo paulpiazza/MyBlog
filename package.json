@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "PORT=3500 NODE_ENV=dev nodemon ./index.js",
-    "test": "PORT=3505 NODE_ENV=test mocha",
+    "test": "PORT=3505 NODE_ENV=test mocha --exit",
     "prod": "PORT=3000 NODE_ENV=prod node ./index.js"
   },
   "keywords": [],

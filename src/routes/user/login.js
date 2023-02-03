@@ -22,7 +22,7 @@ module.exports = (app) => {
     body('password')
       .escape().trim().isLength({ min: 8, max: 12 })
       .isStrongPassword()
-      .withMessage('between 6 and 12 characters'),
+      .withMessage('between 8 and 12 characters'),
 
     (req, res) => {
 

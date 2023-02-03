@@ -5,11 +5,12 @@ const app = require('../index')
 const bcrypt = require('bcrypt')
 const User = require('../src/models/User')
 chai.use(chaiHttp);
+const db = require('../src/mongodb/mongodb')
+const { triggerAsyncId } = require('async_hooks')
 
-describe('when the client try to log in /users/login', () => {
+describe('when the client try to log in /users/login', function () {
 
-    before(`implement users in ${process.env.MONGODB_URI_TEST}`, async () => {
-
+    before(`implement users in ${process.env.MONGODB_URI_TEST}`, async function () {
 
         const saltRounds = 10
 
@@ -22,20 +23,20 @@ describe('when the client try to log in /users/login', () => {
                 email: "user@myblog.net",
                 password: await bcrypt.hash(process.env.USER_PWD_TEST, saltRounds)
             }
-        ]
-    
-        User.insertMany(users, (err, docs) => {
-           if(err) {
-               console.error("Loading fixtures Users failed.", err)
-               return
-           }
-    
-           console.info(`${docs.length} Users fixtures added.`)
+        ] 
+
+        try {
+            const docs = await User.insertMany(users)
             
-        })
+            console.info(`${docs.length} Users fixtures added.\n`)
+
+        } catch(err) {
+            console.error("Loading fixtures Users failed.", err)
+        }
+
     })
 
-    it('should get its token', (done) => {
+    it('should get its token', function (done) {
         chai
             .request(app)
             .post('/users/login')
@@ -47,11 +48,11 @@ describe('when the client try to log in /users/login', () => {
                 assert.equal(res.status, 200)
                 assert.property(res.body, 'token', 'http response have token')
                 assert.isNotEmpty(res.body.token, 'token is not an empty string')
-                done();
+                done()
             })
     })
 
-    after(async () => {
+    after(async function () {
 
         const count = await User.find().count()
 
