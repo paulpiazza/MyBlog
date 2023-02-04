@@ -10,6 +10,7 @@ const { triggerAsyncId } = require('async_hooks')
 const { resolve } = require('path')
 
 const saltRounds = 10
+const delay = 1000
 
 const fakeUser = async () => {
     return {
@@ -58,8 +59,6 @@ describe('when the client try to log in /users/login', function () {
     })
 
     it('should get its token', async function () {
-
-        await new Promise(resolve => setTimeout(resolve, 1000))
 
         const testCredentials = await tests()
 
