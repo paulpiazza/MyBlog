@@ -2,9 +2,9 @@ const ew = require('express-winston')
 const { createLogger, transports, format } = require('winston')
 
 
-const customFormat = format.printf(({level, meta, timestamp}) => {
+const customFormat = format.printf(({level, message, meta, timestamp}) => {
     const d = new Date(timestamp)
-    return `${d.toUTCString()} [${level}] : ${meta.message} \n`
+    return `${d.toUTCString()} [${level}] : ${meta?.message || message} \n`
 })
 
 const logger = createLogger({

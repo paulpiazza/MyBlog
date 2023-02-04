@@ -1,12 +1,20 @@
 # ROOT
 
 # main
-GET http://localhost:3500/
+GET http://localhost:3500/ HTTP/1.1
 
 
-# -------------
+###
 
 
 # USER
 
-# 
+# login
+
+POST http://localhost:3500/users/login HTTP/1.1
+content-type: application/json
+
+{
+	"email": "admin@myblog.",
+	"password": "Admin1234"
+}

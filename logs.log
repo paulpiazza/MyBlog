@@ -1,26 +1,15 @@
-Sat, 04 Feb 2023 12:41:14 GMT [error] : uncaughtException: my error in main root
-Error: my error in main root
-    at /home/piazza/Dev/nodejs-learning/MyBlog/src/routes/root/main.js:3:7
-    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
-    at Route.dispatch (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:114:3)
-    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
-    at /home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/index.js:284:15
-    at Function.process_params (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/index.js:346:12)
-    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/index.js:280:10)
-    at /home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-winston/index.js:429:9
-    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5) 
+Sat, 04 Feb 2023 14:14:15 GMT [error] : uncaughtException: Cannot read property 'message' of undefined
+TypeError: Cannot read property 'message' of undefined
+    at Printf.template (/home/piazza/Dev/nodejs-learning/MyBlog/logs/errorsLogger.js:7:52)
+    at Printf.transform (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/logform/printf.js:11:26)
+    at Format.transform (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/logform/combine.js:20:24)
+    at DerivedLogger._transform (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/winston/lib/winston/logger.js:313:29)
+    at DerivedLogger.Transform._read (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_transform.js:177:10)
+    at DerivedLogger.Transform._write (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_transform.js:164:83)
+    at doWrite (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_writable.js:409:139)
+    at writeOrBuffer (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_writable.js:398:5)
+    at DerivedLogger.Writable.write (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_writable.js:307:11)
+    at DerivedLogger.<computed> [as error] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/winston/lib/winston/create-logger.js:81:14) 
 
-Sat, 04 Feb 2023 12:41:16 GMT [error] : uncaughtException: my error in main root
-Error: my error in main root
-    at /home/piazza/Dev/nodejs-learning/MyBlog/src/routes/root/main.js:3:7
-    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
-    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
-    at Route.dispatch (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:114:3)
-    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
-    at /home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/index.js:284:15
-    at Function.process_params (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/index.js:346:12)
-    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/index.js:280:10)
-    at /home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-winston/index.js:429:9
-    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5) 
+Sat, 04 Feb 2023 14:14:52 GMT [error] : login errors on email, password 
 
