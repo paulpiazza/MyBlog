@@ -7,6 +7,7 @@ require('dotenv').config()
 const helmet = require('helmet')
 const expressWinston = require('express-winston')
 const logger = require('./logs/logger')
+const errLogger = require('./logs/errorsLogger')
 const winston = require('winston/lib/winston/config')
 const port = process.env.PORT || 3000
 
@@ -17,16 +18,16 @@ app.use(helmet())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
-  .use(expressWinston)
 
+app.use(expressWinston.logger({
+  winstonInstance: logger
+}))
+  
 app.set('view engine', 'ejs')
 
 //todo : use Route() from Express
 const sources = path.join(__dirname, 'src', 'routes')
 
-app.use(expressWinston.logger({
-  winstonInstance: logger
-}))
 
 // GET root
 const sourcesRoot = path.join(sources, 'root')
@@ -57,7 +58,9 @@ require(path.join(sourcesUsers, 'editUser'))(app)
 require(path.join(sourcesUsers, 'removeUser'))(app)
 require(path.join(sourcesUsers, 'login'))(app)
 
-
+app.use(expressWinston.errorLogger({
+  winstonInstance: errLogger
+}))
 
 app.listen(port, _ => {
   console.log(`server listen on port: ${port}`)

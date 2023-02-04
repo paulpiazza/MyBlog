@@ -1,6 +1,5 @@
 module.exports = (app) => {
   app.get('/', function(req, res) {
-
     const infoPage = {
       pageTitle: 'Welcome',
       title: 'Hello World!',
