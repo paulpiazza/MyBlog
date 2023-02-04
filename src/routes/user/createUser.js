@@ -8,6 +8,13 @@ const logger = require('../../../logs/logger')
 
 module.exports = (app) => {
 
+
+  /**
+   * GET /users/new
+   * @summary create new account
+   * @tags file upload
+   * @return 200 - success response - application/json
+   */
   app.post(
 
     '/users/new',

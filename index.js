@@ -19,7 +19,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
 
-if(process.env.NODE_ENV === 'test') {
+if (process.env.NODE_ENV === 'test') {
   logger.silent = true
   errLogger.silent = true
 }
@@ -27,8 +27,51 @@ if(process.env.NODE_ENV === 'test') {
 app.use(expressWinston.logger({
   winstonInstance: logger
 }))
-  
+
 app.set('view engine', 'ejs')
+
+
+const expressJSDocSwagger = require('express-jsdoc-swagger');
+
+const options = {
+  info: {
+    version: '1.0.0',
+    title: 'My Blog',
+    license: {
+      name: 'Copyrights, Paul Piazza',
+    },
+  },
+  security: {
+    BasicAuth: {
+      type: 'http',
+      scheme: 'basic',
+    },
+  },
+
+  // Base directory which we use to locate your JSDOC files
+  baseDir: __dirname,
+  // Glob pattern to find your jsdoc files (multiple patterns can be added in an array)
+  filesPattern: './routes/**/*.js',
+  // URL where SwaggerUI will be rendered
+  swaggerUIPath: '/api-docs',
+  // Expose OpenAPI UI
+  exposeSwaggerUI: true,
+  // Expose Open API JSON Docs documentation in `apiDocsPath` path.
+  exposeApiDocs: false,
+  // Open API JSON Docs endpoint.
+  apiDocsPath: '/v1/api-docs',
+  // Set non-required fields as nullable by default
+  notRequiredAsNullable: false,
+  // You can customize your UI options.
+  // you can extend swagger-ui-express config. You can checkout an example of this
+  // in the `example/configuration/swaggerOptions.js`
+  swaggerUiOptions: {},
+  // multiple option in case you want more that one instance
+  multiple: true,
+};
+
+expressJSDocSwagger(app)(options);
+
 
 //todo : use Route() from Express
 const sources = path.join(__dirname, 'src', 'routes')
