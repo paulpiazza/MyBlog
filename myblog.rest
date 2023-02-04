@@ -3,18 +3,30 @@
 # main
 GET http://localhost:3500/ HTTP/1.1
 
+### #############################
+# USER
+### #############################
+
+# Create an account.
+# createUser.js
+
+POST http://localhost:3500/users/new HTTP/1.1
+content-type: application/json
+
+{
+	"email": "admin@myblog.net",
+	"password": "Admin1234"
+}
 
 ###
 
-
-# USER
-
-# login
+# Client Login.
+# login.js
 
 POST http://localhost:3500/users/login HTTP/1.1
 content-type: application/json
 
 {
 	"email": "admin@myblog.",
-	"password": "Admin1234"
+	"password": "Admin1234*"
 }
