@@ -19,6 +19,11 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
 
+if(process.env.NODE_ENV === 'test') {
+  logger.silent = true
+  errLogger.silent = true
+}
+
 app.use(expressWinston.logger({
   winstonInstance: logger
 }))
