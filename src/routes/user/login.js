@@ -31,9 +31,9 @@ module.exports = (app) => {
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
         const msg = errors.array().map(err => err.param).join(', ')
-        const errMsg = `${req.body.email} tries to login. Errors on ${msg}. Please check your credentials and send another request.`
+        const errMsg = `${req.body.email} tries to login. Errors on ${msg}.`
         logger.error(errMsg)
-        return res.status(400).json({ message: errMsg})
+        return res.status(400).json({ message: `${errMsg} Please check your credentials and send another request.`})
       }
 
       User.findOne({ email: req.body.email }).exec().then((user) => {
