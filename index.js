@@ -5,6 +5,9 @@ const db = require('./src/mongodb/mongodb')
 const bodyParser = require('body-parser')
 require('dotenv').config()
 const helmet = require('helmet')
+const expressWinston = require('express-winston')
+const logger = require('./logs/logger')
+const winston = require('winston/lib/winston/config')
 const port = process.env.PORT || 3000
 
 db.connect()
@@ -14,13 +17,16 @@ app.use(helmet())
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))
+  .use(expressWinston)
 
 app.set('view engine', 'ejs')
 
 //todo : use Route() from Express
 const sources = path.join(__dirname, 'src', 'routes')
 
-
+app.use(expressWinston.logger({
+  winstonInstance: logger
+}))
 
 // GET root
 const sourcesRoot = path.join(sources, 'root')

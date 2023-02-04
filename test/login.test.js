@@ -84,7 +84,6 @@ describe('when the client try to log in /users/login', function () {
         assert.equal(res.status, 400)
     })
 
-
     it('should get error 400 with bad password', async function () {
 
         const testCredentials = await tests()
