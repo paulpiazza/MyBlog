@@ -10,7 +10,9 @@ const customFormat = format.printf(({level, message, timestamp}) => {
 const logger = createLogger({
     
     transports: [
-        new transports.Console()
+        new transports.File({
+            filename: "./logs.log"
+        })
     ],
 
     format: format.combine(

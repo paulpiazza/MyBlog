@@ -1,15 +1,2 @@
-Sat, 04 Feb 2023 14:14:15 GMT [error] : uncaughtException: Cannot read property 'message' of undefined
-TypeError: Cannot read property 'message' of undefined
-    at Printf.template (/home/piazza/Dev/nodejs-learning/MyBlog/logs/errorsLogger.js:7:52)
-    at Printf.transform (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/logform/printf.js:11:26)
-    at Format.transform (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/logform/combine.js:20:24)
-    at DerivedLogger._transform (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/winston/lib/winston/logger.js:313:29)
-    at DerivedLogger.Transform._read (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_transform.js:177:10)
-    at DerivedLogger.Transform._write (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_transform.js:164:83)
-    at doWrite (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_writable.js:409:139)
-    at writeOrBuffer (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_writable.js:398:5)
-    at DerivedLogger.Writable.write (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/readable-stream/lib/_stream_writable.js:307:11)
-    at DerivedLogger.<computed> [as error] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/winston/lib/winston/create-logger.js:81:14) 
-
-Sat, 04 Feb 2023 14:14:52 GMT [error] : login errors on email, password 
-
+Sat, 04 Feb 2023 17:21:08 GMT [error] : admin@myblog. tries to login. Errors on email, password. Please check your credentials and send another request.
+Sat, 04 Feb 2023 17:21:08 GMT [info] : HTTP POST /users/login

@@ -5,7 +5,7 @@ const User = require('../../models/User.js')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const { body, validationResult } = require('express-validator')
-const logger = require('../../../logs/errorsLogger')
+const logger = require('../../../logs/logger')
 
 const privateKey = process.env.PRIVATE_KEY_JWT_TOKEN
 
@@ -30,9 +30,10 @@ module.exports = (app) => {
 
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
-        const msg = errors.array().map(err => err.param)
-        logger.error(`login errors on ${msg.join(', ')}`)
-        return res.status(400).json({ message: errors.array() })
+        const msg = errors.array().map(err => err.param).join(', ')
+        const errMsg = `${req.body.email} tries to login. Errors on ${msg}. Please check your credentials and send another request.`
+        logger.error(errMsg)
+        return res.status(400).json({ message: errMsg})
       }
 
       User.findOne({ email: req.body.email }).exec().then((user) => {
