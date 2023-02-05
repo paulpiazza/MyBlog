@@ -10,9 +10,9 @@ module.exports = (app) => {
 
 
   /**
-   * GET /users/new
+   * POST /users/new
    * @summary create new account
-   * @tags file upload
+   * @tags Sign In
    * @return 200 - success response - application/json
    */
   app.post(
@@ -35,8 +35,7 @@ module.exports = (app) => {
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
         const msg = errors.array().map(err => err.param).join(', ')
-        const errMsg = `${req.body.email} tries to create an account. Errors on ${msg}.`
-        logger.error(errMsg)
+        const errMsg = `Errors on ${msg}.`
         return res.status(400).json({ message: `${errMsg} Please check your credentials and send another request.` })
       }
 

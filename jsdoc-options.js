@@ -7,9 +7,11 @@ module.exports = {
         },
     },
     security: {
-        BasicAuth: {
-            type: 'http',
-            scheme: 'basic',
+        security: {
+            BasicAuth: {
+                type: 'http',
+                scheme: 'basic',
+            }
         },
     },
 
