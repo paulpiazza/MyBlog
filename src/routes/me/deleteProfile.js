@@ -1,15 +1,18 @@
 const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-  app.get('/users/:id', auth, (req, res) => {
+  app.delete('/profile/me', auth, (req, res) => {
     const User = require('../../models/User.js')
 
-    const userId = req.params.id
+    const userId = req.body.userid
 
     User.findById(userId).then((user) => {
-      const message = `Profile ${user.email} found.`
-      res.json({ message, data: user })
+      return User.findByIdAndRemove(userId).then(() => {
+        const message = `user ${user.email} ha been deleted.`
 
+        res.json({ message, data: user })
+
+      })
     }).catch(err => {
       const message = `Internal error. Please try later.`
 

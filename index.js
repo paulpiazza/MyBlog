@@ -68,6 +68,13 @@ require(path.join(sourcesUsers, 'editUser'))(app)
 require(path.join(sourcesUsers, 'removeUser'))(app)
 require(path.join(sourcesUsers, 'login'))(app)
 
+// profile
+const sourcesProfile = path.join(sources, 'me')
+require(path.join(sourcesProfile, 'profile'))(app)
+require(path.join(sourcesProfile, 'editProfile'))(app)
+require(path.join(sourcesProfile, 'deleteProfile'))(app)
+
+
 app.use(expressWinston.errorLogger({
   winstonInstance: errLogger
 }))

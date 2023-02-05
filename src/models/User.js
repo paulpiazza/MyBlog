@@ -20,7 +20,14 @@ const userSchema = mg.Schema({
   password: {
     type: String,
     required: [true, "You should have a password."]
+  },
+
+  role: {
+    type: String,
+    enum: ['Admin', 'User'],
+    default: 'User',
   }
+
 }, {
   timestamps: true
 })
