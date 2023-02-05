@@ -1,1 +1,20 @@
 Sun, 05 Feb 2023 06:12:25 GMT [info] : HTTP POST /users/new
+Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/
+Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
+Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/swagger-ui.css
+Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
+Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
+Sun, 05 Feb 2023 06:42:18 GMT [error] : @ tries to login. Errors on email, password, password.
+Sun, 05 Feb 2023 06:42:18 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 06:43:27 GMT [error] : @ tries to login. Errors on email, password, password.
+Sun, 05 Feb 2023 06:43:27 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 06:43:32 GMT [error] : @ tries to login. Errors on email, password, password.
+Sun, 05 Feb 2023 06:43:32 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 06:44:18 GMT [error] : admin@myblog. tries to login. Errors on email.
+Sun, 05 Feb 2023 06:44:18 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/
+Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/swagger-ui.css
+Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
+Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
+Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
+Sun, 05 Feb 2023 06:46:19 GMT [info] : HTTP GET /api-docs/favicon-32x32.png

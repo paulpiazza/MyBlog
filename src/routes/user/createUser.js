@@ -13,7 +13,16 @@ module.exports = (app) => {
    * POST /users/new
    * @summary create new account
    * @tags Sign In
+   * @param {email} request.body.email - Email (Login)
+   * @param {password} request.body.password - Password
    * @return 200 - success response - application/json
+   * @return 400 - bad credentials - application/json
+   * @return 500 - internal error - application/json
+   * @example request - example payload
+   * {
+   *  "email": "myname@myblog.net",
+   *  "password": "Qjd56H*24"
+   * }
    */
   app.post(
 
