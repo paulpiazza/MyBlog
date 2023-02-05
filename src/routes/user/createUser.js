@@ -57,7 +57,7 @@ module.exports = (app) => {
         User.create(newUser).then((userCreated) => {
           const message = `New user created with email address: ${userCreated.email}.`
           logger.error(message)
-          res.json({ message, data: `${message} You can now login and get your token.` })
+          res.json({ message: `${message} You can now login and get your token.`, data: userCreated })
         })
 
       }).catch(err => {

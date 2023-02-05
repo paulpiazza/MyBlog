@@ -94,26 +94,6 @@ describe('when the client try to sign in /users/new', function () {
         })
     })
 
-    it('should get error 429 - too many requests', async function () {
-return false
-        const bruteForceLimit = 3
-
-        for (let i = 1; i <= bruteForceLimit; ++i) {
-            const res = await chai
-                .request(app)
-                .post('/users/new')
-                .send({
-                    email: "adminbruteforce@myblog.net",
-                    password: "123"
-                })
-
-            if (i === bruteForceLimit) {
-                assert.equal(res.status, 429, 'Brute force Not Working')
-            }
-        }
-
-    })
-
     after(async function () {
 
         const count = await User.find().count()

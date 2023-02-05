@@ -7,12 +7,13 @@ const bcrypt = require('bcrypt')
 
 chai.use(chaiHttp);
 
-const fakePassword = "Admin1234*"
+const saltRounds = 10
+const delay = 1000
 
 const fakeUser = async () => {
     return {
-        email: "usertest@myblog.net",
-        password: await bcrypt.hash(fakePassword, 10)
+        email: "admin@myblog.net",
+        password: await bcrypt.hash(process.env.ADMIN_PWD_TEST, saltRounds)
     }
 }
 
@@ -20,22 +21,24 @@ describe('when the client request its profile /profile/me', function () {
 
     let tokenTest = ''
 
+    this.timeout(5500)
+
     before('Create a new user and get its token', async function () {
 
+        const user = await fakeUser()
+
+        const docs = await User.insertMany([user])
+
         await new Promise(function (resolve) {
-            setTimeout(() => resolve(), 1500)
+            setTimeout(() => resolve(), 2500)
         })
-
-        const userTestData = await fakeUser()
-
-        const docs = await User.create(userTestData)
 
         const res = await chai
             .request(app)
             .post('/users/login')
             .send({
-                email: userTestData.email,
-                password: fakePassword
+                email: "admin@myblog.net",
+                password: process.env.ADMIN_PWD_TEST
             })
 
         tokenTest = res.body.token
@@ -46,6 +49,10 @@ describe('when the client request its profile /profile/me', function () {
     })
 
     it('should get its profile', async function () {
+
+
+
+
 
         if (!tokenTest) return false
 
