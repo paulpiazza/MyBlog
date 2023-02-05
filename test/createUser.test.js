@@ -106,9 +106,12 @@ describe('when the client try to sign in /users/new', function () {
                     email: "adminbruteforce@myblog.net",
                     password: "123"
                 })
+
+            if (i === bruteForceLimit) {
+                assert.equal(res.status, 429, 'Brute force Not Working')
+            }
         }
-        
-        assert.equal(res.status, 429, 'Brute force Not Working')
+
     })
 
     after(async function () {
