@@ -16,7 +16,8 @@ module.exports = async () => {
     const users = [
         {
             email: "admin@myblog.net",
-            password: await bcrypt.hash(process.env.ADMIN_PWD_TEST, saltRounds)
+            password: await bcrypt.hash(process.env.ADMIN_PWD_TEST, saltRounds),
+            role: 'Admin'
         },
         {
             email: "user@myblog.net",

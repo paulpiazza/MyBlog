@@ -1,20 +1,44 @@
-Sun, 05 Feb 2023 06:12:25 GMT [info] : HTTP POST /users/new
-Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/
-Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
-Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/swagger-ui.css
-Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
-Sun, 05 Feb 2023 06:42:06 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
-Sun, 05 Feb 2023 06:42:18 GMT [error] : @ tries to login. Errors on email, password, password.
-Sun, 05 Feb 2023 06:42:18 GMT [info] : HTTP POST /users/login
-Sun, 05 Feb 2023 06:43:27 GMT [error] : @ tries to login. Errors on email, password, password.
-Sun, 05 Feb 2023 06:43:27 GMT [info] : HTTP POST /users/login
-Sun, 05 Feb 2023 06:43:32 GMT [error] : @ tries to login. Errors on email, password, password.
-Sun, 05 Feb 2023 06:43:32 GMT [info] : HTTP POST /users/login
-Sun, 05 Feb 2023 06:44:18 GMT [error] : admin@myblog. tries to login. Errors on email.
-Sun, 05 Feb 2023 06:44:18 GMT [info] : HTTP POST /users/login
-Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/
-Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/swagger-ui.css
-Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
-Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
-Sun, 05 Feb 2023 06:46:18 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
-Sun, 05 Feb 2023 06:46:19 GMT [info] : HTTP GET /api-docs/favicon-32x32.png
+Sun, 05 Feb 2023 07:03:29 GMT [info] : HTTP GET /api-docs/
+Sun, 05 Feb 2023 07:03:29 GMT [info] : HTTP GET /api-docs/swagger-ui.css
+Sun, 05 Feb 2023 07:03:29 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
+Sun, 05 Feb 2023 07:03:29 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
+Sun, 05 Feb 2023 07:03:29 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
+Sun, 05 Feb 2023 07:03:30 GMT [info] : HTTP GET /api-docs/favicon-32x32.png
+Sun, 05 Feb 2023 08:38:02 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 08:39:30 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 08:39:51 GMT [error] : admin@myblog. tries to login. Errors on email.
+Sun, 05 Feb 2023 08:39:51 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 08:40:02 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 08:41:02 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 08:47:32 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 08:48:55 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:07:12 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:12:52 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 09:13:09 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:16:22 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:17:13 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:17:22 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:17:46 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:20:15 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:20:19 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:20:21 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:20:32 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:21:39 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:22:29 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:24:59 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:25:54 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:26:55 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:28:09 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 09:28:26 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:28:29 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:28:47 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:29:52 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 09:31:43 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 09:32:09 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:34:00 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:35:19 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 09:35:58 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:38:41 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 09:39:04 GMT [info] : HTTP GET /profile/me
+Sun, 05 Feb 2023 09:39:24 GMT [info] : HTTP POST /users/login
+Sun, 05 Feb 2023 09:39:44 GMT [info] : HTTP GET /profile/me

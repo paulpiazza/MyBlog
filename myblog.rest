@@ -1,7 +1,10 @@
+@baseUrl=http://localhost:3500
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGY3OTRhN2IyYmQ3ZTAyNDU3MDlmYyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY3NTU4OTk2NCwiZXhwIjoxNjc1NjExNTY0fQ.u7A_WTG3PbsjRZFPELQiht5nbcHNt0I2JVwxl7oRDY8
+
 # ROOT
 
 # main
-GET http://localhost:3500/ HTTP/1.1
+GET {{baseUrl}} HTTP/1.1
 
 ### #############################
 # USER
@@ -10,12 +13,12 @@ GET http://localhost:3500/ HTTP/1.1
 # Create an account.
 # createUser.js
 
-POST http://localhost:3500/users/new HTTP/1.1
+POST {{baseUrl}}/users/new HTTP/1.1
 content-type: application/json
 
 {
 	"email": "admin@myblog.net",
-	"password": "Admin1234"
+	"password": "Admin1234*"
 }
 
 ###
@@ -23,10 +26,16 @@ content-type: application/json
 # Client Login.
 # login.js
 
-POST http://localhost:3500/users/login HTTP/1.1
+POST {{baseUrl}}/users/login HTTP/1.1
 content-type: application/json
 
 {
-	"email": "admin@myblog.",
+	"email": "admin@myblog.net",
 	"password": "Admin1234*"
 }
+
+###
+
+# PROFILE
+GET {{baseUrl}}/profile/me HTTP/1.1
+Authorization: Bearer {{token}}
