@@ -37,9 +37,8 @@ module.exports = (app) => {
       .withMessage('enter a valid email'),
 
     body('password')
-      .trim().isLength({ min: 8, max: 12 })
-      .isStrongPassword()
-      .withMessage('between 8 and 12 characters.'),
+      .esacape().trim()
+      .withMessage('enter your password'),
 
     (req, res) => {
 
