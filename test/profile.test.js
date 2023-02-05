@@ -22,6 +22,10 @@ describe('when the client request its profile /profile/me', function () {
 
     before('Create a new user and get its token', async function () {
 
+        await new Promise(function (resolve) {
+            setTimeout(() => resolve(), 1500)
+        })
+
         const userTestData = await fakeUser()
 
         const docs = await User.create(userTestData)
@@ -58,7 +62,7 @@ describe('when the client request its profile /profile/me', function () {
         const count = await User.find().count()
 
         if (count > 0) {
-            //await User.deleteMany()
+            await User.deleteMany()
             await User.syncIndexes()
         }
     })

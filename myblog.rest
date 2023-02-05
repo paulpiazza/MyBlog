@@ -17,7 +17,7 @@ POST {{baseUrl}}/users/new HTTP/1.1
 content-type: application/json
 
 {
-	"email": "admin@myblog.net",
+	"email": "admin100@myblog.net",
 	"password": "Admin1234*"
 }
 
