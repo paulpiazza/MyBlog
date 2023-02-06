@@ -55,7 +55,7 @@ module.exports = (app) => {
 
       const newUser = {}
 
-      if('email' in req.body) {
+      if ('email' in req.body) {
         newUser['email'] = req.body.email
       }
 
@@ -66,13 +66,18 @@ module.exports = (app) => {
 
       try {
         const doc = await User.findByIdAndUpdate(userId, newUser, { new: true })
+
+        if (!doc) {
+          logger.error(`user id:${userId} tries to update its profile.`)
+          return res.status(500).json({ message: 'No user found.' })
+        }
+
         const message = `The user ${doc.email} has been updated.`
         return res.json({ message, data: doc })
 
-      } catch(err) {
-        logger.error(`user id:${userId} tries to update its profile. Error: ${err.message}`)
+      } catch (error) {
         const message = `Internal error. Please try later.`
-        return res.status(500).json({ message, data: err.message })
+        return res.status(500).json({ message, data: error.message })
 
       }
     })

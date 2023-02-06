@@ -167,3 +167,21 @@ Mon, 06 Feb 2023 19:42:29 GMT [info] : HTTP POST /users/new
 Mon, 06 Feb 2023 19:42:32 GMT [info] : HTTP POST /users/login
 Mon, 06 Feb 2023 19:42:48 GMT [info] : HTTP GET /profile/me
 Mon, 06 Feb 2023 19:42:57 GMT [info] : HTTP DELETE /profile/me
+Mon, 06 Feb 2023 19:43:50 GMT [error] : user 63e158257cbd0ef1c4a20cb8 tries to delete its account and fail. Error: Cannot read property 'email' of null
+Mon, 06 Feb 2023 19:43:50 GMT [info] : HTTP DELETE /profile/me
+Mon, 06 Feb 2023 19:44:21 GMT [error] : user 63e158257cbd0ef1c4a20cb8 tries to delete its account and fail. Error: Cannot read property 'email' of null
+Mon, 06 Feb 2023 19:44:21 GMT [info] : HTTP DELETE /profile/me
+Mon, 06 Feb 2023 19:47:15 GMT [error] : New user created with email address: admin100@myblog.net.
+Mon, 06 Feb 2023 19:47:15 GMT [info] : HTTP POST /users/new
+Mon, 06 Feb 2023 19:47:18 GMT [info] : HTTP POST /users/login
+Mon, 06 Feb 2023 19:47:34 GMT [info] : HTTP PUT /profile/me
+Mon, 06 Feb 2023 19:47:40 GMT [info] : HTTP DELETE /profile/me
+Mon, 06 Feb 2023 19:47:45 GMT [error] : user 63e159436e43124639d9f5f7 tries to delete its account and fail.
+Mon, 06 Feb 2023 19:47:45 GMT [info] : HTTP DELETE /profile/me
+Mon, 06 Feb 2023 19:48:35 GMT [error] : New user created with email address: admin100@myblog.net.
+Mon, 06 Feb 2023 19:48:35 GMT [info] : HTTP POST /users/new
+Mon, 06 Feb 2023 19:48:39 GMT [info] : HTTP POST /users/login
+Mon, 06 Feb 2023 19:48:55 GMT [info] : HTTP PUT /profile/me
+Mon, 06 Feb 2023 19:48:58 GMT [info] : HTTP DELETE /profile/me
+Mon, 06 Feb 2023 19:49:00 GMT [error] : user 63e15993770358eb907053e1 tries to delete its account and fail.
+Mon, 06 Feb 2023 19:49:00 GMT [info] : HTTP DELETE /profile/me

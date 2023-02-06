@@ -20,13 +20,17 @@ module.exports = (app) => {
     try {
       const userRemoved = await User.findByIdAndDelete(userId)
 
+      if(!userRemoved){
+        logger.error(`user ${userId} tries to delete its account and fail.`)
+        return res.status(400).json({ message: 'No user found.' })
+      }
+
       const message = `Your account ${userRemoved.email} has been deleted.`
       return res.json({ message, data: userRemoved })
 
     } catch (error) {
-      logger.error(`user ${userId} tries to delete its account and fail. Error: ${error.message}`)
       const message = `Internal error. Please try later.`
-      return res.status(500).json({ message, data: error })
+      return res.status(500).json({ message, data: error.message })
     }
   })
 }
