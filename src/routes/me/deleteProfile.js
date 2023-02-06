@@ -22,7 +22,7 @@ module.exports = (app) => {
 
       if(!doc){
         logger.error(`user ${userId} tries to delete its account and fail.`)
-        return res.status(400).json({ message: 'No user found.' })
+        return res.status(404).json({ message: 'No user found.' })
       }
 
       const message = `Your account ${doc.email} has been deleted.`

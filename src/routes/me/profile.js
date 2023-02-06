@@ -19,7 +19,7 @@ module.exports = (app) => {
 
             if (!user) {
                 const message = `No user found. Please try to login.`
-                return res.status(400).json({ message })
+                return res.status(404).json({ message })
             }
 
             const message = `Profile ${user.email} found.`

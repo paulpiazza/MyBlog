@@ -69,7 +69,7 @@ module.exports = (app) => {
 
         if (!doc) {
           logger.error(`user id:${userId} tries to update its profile.`)
-          return res.status(500).json({ message: 'No user found.' })
+          return res.status(404).json({ message: 'No user found.' })
         }
 
         const message = `The user ${doc.email} has been updated.`

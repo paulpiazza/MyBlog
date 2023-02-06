@@ -50,15 +50,39 @@ describe('when the client request its profile /profile/me', function () {
 
     it('should get its profile', async function () {
 
-
-
-
-
         if (!tokenTest) return false
 
         const res = await chai
             .request(app)
             .get('/profile/me')
+            .auth(tokenTest, { type: 'bearer' })
+
+        assert.equal(res.status, 200);
+    })
+
+    it('should update its profile', async function () {
+
+        if (!tokenTest) return false
+
+        const res = await chai
+            .request(app)
+            .put('/profile/me')
+            .auth(tokenTest, { type: 'bearer' })
+            .send({
+                email: "adminTestUpdate@myblog.net",
+                password: "Admin1234*"
+            })
+
+        assert.equal(res.status, 200);
+    })
+
+    it('should delete its account', async function () {
+
+        if (!tokenTest) return false
+
+        const res = await chai
+            .request(app)
+            .delete('/profile/me')
             .auth(tokenTest, { type: 'bearer' })
 
         assert.equal(res.status, 200);

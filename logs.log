@@ -185,3 +185,11 @@ Mon, 06 Feb 2023 19:48:55 GMT [info] : HTTP PUT /profile/me
 Mon, 06 Feb 2023 19:48:58 GMT [info] : HTTP DELETE /profile/me
 Mon, 06 Feb 2023 19:49:00 GMT [error] : user 63e15993770358eb907053e1 tries to delete its account and fail.
 Mon, 06 Feb 2023 19:49:00 GMT [info] : HTTP DELETE /profile/me
+Mon, 06 Feb 2023 20:23:58 GMT [error] : New user created with email address: admin100@myblog.net.
+Mon, 06 Feb 2023 20:23:58 GMT [info] : HTTP POST /users/new
+Mon, 06 Feb 2023 20:24:02 GMT [info] : HTTP POST /users/login
+Mon, 06 Feb 2023 20:24:05 GMT [info] : HTTP GET /profile/me
+Mon, 06 Feb 2023 20:24:10 GMT [info] : HTTP GET /profile/me
+Mon, 06 Feb 2023 20:24:13 GMT [info] : HTTP POST /users/login
+Mon, 06 Feb 2023 20:24:29 GMT [info] : HTTP GET /profile/me
+Mon, 06 Feb 2023 20:24:32 GMT [info] : HTTP PUT /profile/me
