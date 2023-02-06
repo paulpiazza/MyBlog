@@ -1,5 +1,6 @@
 @baseUrl=http://localhost:3500
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZGY3OTRhN2IyYmQ3ZTAyNDU3MDlmYyIsInJvbGUiOiJBZG1pbiIsImlhdCI6MTY3NTU4OTk2NCwiZXhwIjoxNjc1NjExNTY0fQ.u7A_WTG3PbsjRZFPELQiht5nbcHNt0I2JVwxl7oRDY8
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTE0OGE1YjgyNmM0OTlhNTM2MzA1NyIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNjc1NzA4NTkxLCJleHAiOjE2NzU3MzAxOTF9.joFeWOBYKcvKsM7242Z9QbuvdUEnRjgevZ4H4JfRhhc
+
 
 # ROOT
 
@@ -30,7 +31,7 @@ POST {{baseUrl}}/users/login HTTP/1.1
 content-type: application/json
 
 {
-	"email": "admin@myblog.net",
+	"email": "admin100@myblog.net",
 	"password": "Admin1234*"
 }
 
@@ -39,3 +40,17 @@ content-type: application/json
 # PROFILE
 GET {{baseUrl}}/profile/me HTTP/1.1
 Authorization: Bearer {{token}}
+
+###
+
+# EDIT PROFILE
+PUT {{baseUrl}}/profile/me HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+	"email": "admin10045@myblog.net",
+	"password": "Test123fJ*"
+}
+
+###
