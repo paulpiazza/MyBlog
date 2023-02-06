@@ -1,23 +1,32 @@
 const auth = require('../../auth/auth')
+const User = require('../../models/User.js')
+const logger = require('../../../logs/logger')
+
 
 module.exports = (app) => {
-  app.delete('/profile/me', auth, (req, res) => {
-    const User = require('../../models/User.js')
 
-    const userId = req.body.userid
+  /**
+ * DELETE /profile/me
+ * @summary delete your account
+ * @tags profile
+ * @return 200 - success response - application/json
+ * @return 400 - no user found - application/json
+ * @return 500 - internal error - application/json
+ */
+  app.delete('/profile/me', auth, async (req, res) => {
 
-    User.findById(userId).then((user) => {
-      return User.findByIdAndRemove(userId).then(() => {
-        const message = `user ${user.email} ha been deleted.`
+    const userId = req.body.id
 
-        res.json({ message, data: user })
+    try {
+      const userRemoved = await User.findByIdAndDelete(userId)
 
-      })
-    }).catch(err => {
+      const message = `Your account ${userRemoved.email} has been deleted.`
+      return res.json({ message, data: userRemoved })
+
+    } catch (error) {
+      logger.error(`user ${userId} tries to delete its account and fail. Error: ${error.message}`)
       const message = `Internal error. Please try later.`
-
-      res.status(500).json({ message, data: err })
-
-    })
+      return res.status(500).json({ message, data: error })
+    }
   })
 }

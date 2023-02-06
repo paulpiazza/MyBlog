@@ -1,5 +1,5 @@
 @baseUrl=http://localhost:3500
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTE0OGE1YjgyNmM0OTlhNTM2MzA1NyIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNjc1NzA4NTkxLCJleHAiOjE2NzU3MzAxOTF9.joFeWOBYKcvKsM7242Z9QbuvdUEnRjgevZ4H4JfRhhc
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTE1ODI1N2NiZDBlZjFjNGEyMGNiOCIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNjc1NzEyNTUyLCJleHAiOjE2NzU3MzQxNTJ9.T32JwE2x4n-Ehn3uqzH3MuxyefIkdw3WCHz_xJbD9j8
 
 
 # ROOT
@@ -52,5 +52,11 @@ Authorization: Bearer {{token}}
 	"email": "admin10045@myblog.net",
 	"password": "Test123fJ*"
 }
+
+###
+
+# DELETE PROFILE
+DELETE {{baseUrl}}/profile/me HTTP/1.1
+Authorization: Bearer {{token}}
 
 ###
