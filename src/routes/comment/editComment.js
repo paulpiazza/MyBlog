@@ -1,37 +1,62 @@
+const auth = require('../../auth/auth')
+const Post = require('../../models/Post.js')
+
 module.exports = (app) => {
-  app.put('/posts/:slugg/comments/:id', (req, res) => {
-    const Post = require('../../models/Post.js')
-    const slugg = req.params.slugg
-    const idComment = req.params.id
-    const newComment = {
-      author: req.body.author,
-      body: req.body.body,
-      date: req.body.date ? Date.parse(req.date) : Date.now()
-    }
-    Post.findOne({ slugg }).then((post) => {
-      const comments = post.comments.map(c => {
-        if(c._id == idComment) {
-          return {
-            author: req.body.author || c.author,
-            body: req.body.body || c.body,
-            createdAt: Date.now()
+
+  /**
+ * PUT /posts/:slugg/comments/:id
+ * @summary update a comment in a post
+ * @tags comments
+ * @param {body} request.body.body - Body of the comment
+ * @param {slugg} request.body.slugg - Title of the post
+ * @param {id} id - id of the post
+ * @return 200 - success response - application/json
+ * @return 400 - no user found - application/json
+ * @return 500 - internal error - application/json
+ * @example request - example payload
+ * {
+ *     "body": "my comment"
+ *   }
+ */
+  app.put(
+
+    '/posts/:slugg/comments/:id',
+
+    body('slugg').escape().trim(),
+
+    body('body').escape().trim(),
+
+    auth,
+
+    (req, res) => {
+
+      const slugg = req.params.slugg
+      const idComment = req.params.id
+
+      Post.findOne({ slugg }).then((post) => {
+        const comments = post.comments.map(c => {
+          if (c._id == idComment && c.author == req.body.id) {
+            return {
+              author: c.author,
+              body: req.body.body || c.body,
+              createdAt: Date.now()
+            }
+          } else {
+            return c
           }
-        } else {
-          return c
-        }
-      })
-      post.comments = comments
+        })
+        post.comments = comments
 
-      post.save().then((post) => {
-        const message = `The comment ${idComment} has been updated.`
+        post.save().then((post) => {
+          const message = `The comment ${idComment} has been updated.`
 
-        res.json({message, data: post})
-        
-      }).catch(err => {
-         const message = `The comment has not been updated. Please try later.`
-    
-         res.status(500).json({ message, data: err })
+          res.json({ message, data: post })
+
+        }).catch(err => {
+          const message = `The comment has not been updated. Please try later.`
+
+          res.status(500).json({ message, data: err })
+        })
       })
     })
-  })
 }

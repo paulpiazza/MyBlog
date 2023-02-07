@@ -1,11 +1,14 @@
+const auth = require('../../auth/auth')
+const Post = require('../../models/Post.js')
+
 module.exports = (app) => {
-  app.delete('/posts/:slugg/comments/:id', (req, res) => {
-    const Post = require('../../models/Post.js')
+  app.delete('/posts/:slugg/comments/:id', auth, (req, res) => {
+    
     const slugg = req.params.slugg
     const idComment = req.params.id
     
     Post.findOne({ slugg }).then((post) => {
-      const comments = post.comments.filter(c => c._id != idComment)
+      const comments = post.comments.filter(c => c._id != idComment && c.author == req.body.id)
       post.comments = comments
 
       post.save().then((postUpdated) => {

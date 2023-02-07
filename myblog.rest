@@ -61,3 +61,78 @@ DELETE {{baseUrl}}/profile/me HTTP/1.1
 Authorization: Bearer {{token}}
 
 ###
+
+# POSTS
+
+###
+
+POST {{baseUrl}}/posts/new HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+	"slugg": "my first title",
+	"body": "<h1>My title</h1><p>test paragraph</p>"
+}
+
+###
+
+# Get post by slugg
+GET {{baseUrl}}/posts/:slugg
+
+###
+
+# get all posts
+
+GET {{baseUrl}}/posts
+
+###
+
+# put post by slugg
+
+PUT {{baseUrl}}/posts/:slugg HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+	"slugg": "my first title updated",
+	"body": "<h1>My title 2</h1><p>test update paragraph</p>"
+}
+
+###
+
+DELETE {{baseUrl}}/posts/:slugg HTTP/1.1
+Authorization: Bearer {{token}}
+
+###
+
+# Comments
+
+###
+
+POST {{baseUrl}}/posts/:slugg/comments/new
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+	"date": "2022-02-01",
+	"body": "my comment"
+}
+
+###
+
+PUT  {{baseUrl}}/posts/:slugg/comments/:id
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+	"body": "my comment update"
+}
+
+###
+
+DELETE {{baseUrl}}/posts/:slugg/comments/:id
+Authorization: Bearer {{token}}
+
+###
+
