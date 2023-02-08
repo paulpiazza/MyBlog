@@ -4,7 +4,7 @@ const Post = require('../../models/Post.js')
 module.exports = (app) => {
 
     /**
- * DELETE /posts/:slugg/comments/:id
+ * DELETE /posts/{slugg}/comments/{id}
  * @summary delete a comment in a post
  * @tags comments
  * @param {body} request.body.body - Body of the comment
@@ -15,6 +15,13 @@ module.exports = (app) => {
  * @return 500 - internal error - application/json
  */
   app.delete('/posts/:slugg/comments/:id', auth, (req, res) => {
+
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+      const msg = errors.array().map(err => err.param).join(', ')
+      const errMsg = `Errors on ${msg}.`
+      return res.status(400).json({ message: `${errMsg} Please check your credentials and send another request. Your password should have a minimum of 8 characters. It should contain lowercase, uppercase, numbers, and special characters.` })
+    }
     
     const slugg = req.params.slugg
     const idComment = req.params.id

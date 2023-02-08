@@ -64,8 +64,6 @@ const sourcesUsers = path.join(sources, 'user')
 require(path.join(sourcesUsers, 'createUser'))(app)
 require(path.join(sourcesUsers, 'getAllUsers'))(app)
 require(path.join(sourcesUsers, 'getUser'))(app)
-require(path.join(sourcesUsers, 'editUser'))(app)
-require(path.join(sourcesUsers, 'removeUser'))(app)
 require(path.join(sourcesUsers, 'login'))(app)
 
 // profile

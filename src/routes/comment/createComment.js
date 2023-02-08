@@ -23,7 +23,7 @@ module.exports = (app) => {
    */
   app.post(
 
-    '/posts/:slugg/comments/new',
+    '/posts/{slugg}/comments/new',
 
     body('slugg').escape().trim(),
 
@@ -32,6 +32,13 @@ module.exports = (app) => {
     auth,
 
     (req, res) => {
+
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        const msg = errors.array().map(err => err.param).join(', ')
+        const errMsg = `Errors on ${msg}.`
+        return res.status(400).json({ message: `${errMsg} Please check your credentials and send another request. Your password should have a minimum of 8 characters. It should contain lowercase, uppercase, numbers, and special characters.` })
+      }
 
       const slugg = req.params.slugg
 

@@ -51,6 +51,7 @@ module.exports = (app) => {
         const errMsg = `Errors on ${msg}.`
         return res.status(400).json({ message: `${errMsg} Please check your credentials and send another request. Your password should have a minimum of 8 characters. It should contain lowercase, uppercase, numbers, and special characters.` })
       }
+      
       const userId = req.body.id
 
       const newUser = {}

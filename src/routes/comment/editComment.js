@@ -1,5 +1,7 @@
 const auth = require('../../auth/auth')
 const Post = require('../../models/Post.js')
+const { body, validationResult } = require('express-validator')
+const logger = require('../../../logs/logger')
 
 module.exports = (app) => {
 
@@ -20,7 +22,7 @@ module.exports = (app) => {
  */
   app.put(
 
-    '/posts/:slugg/comments/:id',
+    '/posts/{slugg}/comments/{id}',
 
     body('slugg').escape().trim(),
 
@@ -29,6 +31,13 @@ module.exports = (app) => {
     auth,
 
     (req, res) => {
+
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        const msg = errors.array().map(err => err.param).join(', ')
+        const errMsg = `Errors on ${msg}.`
+        return res.status(400).json({ message: `${errMsg} Please check your credentials and send another request. Your password should have a minimum of 8 characters. It should contain lowercase, uppercase, numbers, and special characters.` })
+      }
 
       const slugg = req.params.slugg
       const idComment = req.params.id
