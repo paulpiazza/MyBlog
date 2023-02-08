@@ -136,3 +136,11 @@ Authorization: Bearer {{token}}
 
 ###
 
+# user
+
+GET {{baseUrl}}/users
+Authorization: Bearer {{token}}
+
+GET {{baseUrl}}/users/:id
+Authorization: Bearer {{token}}
+

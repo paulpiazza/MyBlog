@@ -4,7 +4,7 @@ const Post = require('../../models/Post.js')
 module.exports = (app) => {
 
   /**
-  * GET /posts/:slugg
+  * GET /posts/{slugg}
   * @summary get a post by slugg
   * @tags posts
   * @return 200 - success response - application/json

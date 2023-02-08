@@ -2,6 +2,18 @@ const auth = require('../../auth/auth')
 const Post = require('../../models/Post.js')
 
 module.exports = (app) => {
+
+    /**
+ * DELETE /posts/:slugg/comments/:id
+ * @summary delete a comment in a post
+ * @tags comments
+ * @param {body} request.body.body - Body of the comment
+ * @param {slugg} request.body.slugg - Title of the post
+ * @param {id} id - id of the post
+ * @return 200 - success response - application/json
+ * @return 400 - no user found - application/json
+ * @return 500 - internal error - application/json
+ */
   app.delete('/posts/:slugg/comments/:id', auth, (req, res) => {
     
     const slugg = req.params.slugg

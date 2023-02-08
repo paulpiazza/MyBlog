@@ -4,7 +4,7 @@ const auth = require('../../auth/auth')
 module.exports = (app) => {
 
   /**
-  * DELETE /posts/:slugg
+  * DELETE /posts/{slugg}
   * @summary delete a post by slugg
   * @tags posts
   * @param {slugg} request.body.slugg - Title of the post

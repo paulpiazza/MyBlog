@@ -6,7 +6,7 @@ const logger = require('../../../logs/logger')
 module.exports = (app) => {
 
   /**
-   * PUT /posts/:slugg
+   * PUT /posts/{slugg}
    * @summary update a post
    * @tags posts
    * @param {body} request.body.body - Body of the post
@@ -30,34 +30,42 @@ module.exports = (app) => {
 
     auth,
 
-    (req, res) => {
+    async (req, res) => {
+
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        const msg = errors.array().map(err => err.param).join(', ')
+        const errMsg = `Errors on ${msg}.`
+        return res.status(400).json({ message: `${errMsg} Checks your inputs.` })
+      }
 
       const slugg = req.params.slugg
 
-      const newPost = {
-        body: req.body.body,
-        slugg: req.body.slugg,
+      const newPost = {}
+
+      if ('body' in req.body) {
+        newPost['body'] = req.body.body
       }
 
-      return Post.findOneAndUpdate({ slugg, author: req.body.id }, newPost).then((post) => {
+      if ('slugg' in req.body) {
+        newPost['slugg'] = req.body.slugg
+      }
 
-        return Post.findOne({ slugg }).then((post) => {
+      try {
+        const post = Post.findOneAndUpdate({ slugg, author: req.body.id }, newPost, { new: true })
 
-          if (!post) {
-            const message = `update ${post.slugg} fails.`
-            return res.json({ message })
-          }
+        if (!post) {
+          const message = `update ${post.slugg} fails.`
+          return res.json({ message })
+        }
 
-          const msg = `update ${post.slugg}`
-          return res.json({ message: msg, data: post })
-        })
+        const msg = `update ${post.slugg}`
+        return res.json({ message: msg, data: post })
 
-      }).catch(err => {
+      } catch (error) {
         const message = `No posts found. Please try later.`
-
-        res.status(500).json({ message: message, data: err })
-
-      })
+        res.status(500).json({ message: message, data: error.message })
+      }
 
     })
 }

@@ -27,7 +27,7 @@ module.exports = (app) => {
 
         }).catch(err => {
             const message = `Internal error. Please try later.`
-            res.status(500).json({ message, data: err })
+            res.status(500).json({ message, data: err.message })
 
         })
     })

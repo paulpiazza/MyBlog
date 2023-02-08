@@ -1,6 +1,5 @@
 const Post = require('../../models/Post.js')
 const auth = require('../../auth/auth')
-const bcrypt = require('bcrypt')
 const { body, validationResult } = require('express-validator')
 const logger = require('../../../logs/logger')
 
