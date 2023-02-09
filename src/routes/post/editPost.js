@@ -52,10 +52,11 @@ module.exports = (app) => {
       }
 
       try {
-        const post = Post.findOneAndUpdate({ slugg, author: req.body.id }, newPost, { new: true })
+        console.log(slugg)
+        const post = await Post.findOneAndUpdate({ slugg }, newPost, { new: true })
 
         if (!post) {
-          const message = `update ${post.slugg} fails.`
+          const message = `update fails.`
           return res.json({ message })
         }
 

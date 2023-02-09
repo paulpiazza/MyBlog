@@ -1,5 +1,5 @@
 @baseUrl=http://localhost:3500
-@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTE2MWRlMzZlMWFiMzhiMzg3NzI0MSIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNjc1NzE1MDUzLCJleHAiOjE2NzU3MzY2NTN9.zHy5M7x35SfKYNCHxSCUs0_-aT_gGzJU9XaGnq0ZYH0
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTU1NWUzYzQ5MDFhY2YwMzQ1NWM1YyIsInJvbGUiOiJVc2VyIiwiaWF0IjoxNjc1OTc0MTIyLCJleHAiOjE2NzU5OTU3MjJ9.Q6JQnUlHHsEgrzq-L_zJjJC9O_keNKond0EXs5-RhRw
 
 
 
@@ -71,14 +71,14 @@ content-type: application/json
 Authorization: Bearer {{token}}
 
 {
-	"slugg": "my first title",
+	"slugg": "my first title 3",
 	"body": "<h1>My title</h1><p>test paragraph</p>"
 }
 
 ###
 
 # Get post by slugg
-GET {{baseUrl}}/posts/:slugg
+GET {{baseUrl}}/posts/my_first_title
 
 ###
 
@@ -90,18 +90,17 @@ GET {{baseUrl}}/posts
 
 # put post by slugg
 
-PUT {{baseUrl}}/posts/:slugg HTTP/1.1
+PUT {{baseUrl}}/posts/my_first_title HTTP/1.1
 content-type: application/json
 Authorization: Bearer {{token}}
 
 {
-	"slugg": "my first title updated",
 	"body": "<h1>My title 2</h1><p>test update paragraph</p>"
 }
 
 ###
 
-DELETE {{baseUrl}}/posts/:slugg HTTP/1.1
+DELETE {{baseUrl}}/posts/myfirsttitle HTTP/1.1
 Authorization: Bearer {{token}}
 
 ###
@@ -110,18 +109,17 @@ Authorization: Bearer {{token}}
 
 ###
 
-POST {{baseUrl}}/posts/:slugg/comments/new
+POST {{baseUrl}}/posts/my_first_title/comments/new
 content-type: application/json
 Authorization: Bearer {{token}}
 
 {
-	"date": "2022-02-01",
 	"body": "my comment"
 }
 
 ###
 
-PUT  {{baseUrl}}/posts/:slugg/comments/:id
+PUT  {{baseUrl}}/posts/my_first_title/comments/63e560c3b599075a98409f0c
 content-type: application/json
 Authorization: Bearer {{token}}
 
@@ -131,7 +129,7 @@ Authorization: Bearer {{token}}
 
 ###
 
-DELETE {{baseUrl}}/posts/:slugg/comments/:id
+DELETE {{baseUrl}}/posts/my_first_title/comments/63e560e6b599075a98409f12
 Authorization: Bearer {{token}}
 
 ###

@@ -24,3 +24,16 @@ TypeError: Cannot read property 'split' of undefined
     at Function.process_params (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/index.js:421:3)
     at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/index.js:280:10) 
 
+Thu, 09 Feb 2023 21:02:55 GMT [error] : uncaughtException: validationResult is not defined
+ReferenceError: validationResult is not defined
+    at /home/piazza/Dev/nodejs-learning/MyBlog/src/routes/comment/removeComment.js:18:20
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at /home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:31:7
+    at /home/piazza/Dev/nodejs-learning/MyBlog/node_modules/jsonwebtoken/verify.js:261:12
+    at getSecret (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/jsonwebtoken/verify.js:97:14)
+    at Object.module.exports [as verify] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/jsonwebtoken/verify.js:101:10)
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:17:7)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13) 
+

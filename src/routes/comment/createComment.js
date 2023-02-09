@@ -6,32 +6,29 @@ const logger = require('../../../logs/logger')
 module.exports = (app) => {
 
   /**
-   * POST /posts/:slugg/comments/new
+   * POST /posts/{slugg}/comments/new
    * @summary create a comment in a post
    * @tags comments
    * @param {body} request.body.body - Body of the comment
-   * @param {slugg} request.body.slugg - Title of the post
-   * @param {date} request.body.date - date of the comment
+   * @param {slugg} req.params.slugg - Title of the post
    * @return 200 - success response - application/json
    * @return 400 - no user found - application/json
    * @return 500 - internal error - application/json
    * @example request - example payload
    * {
-   *     "date": "2022-02-01",
    *     "body": "my comment"
    *   }
    */
   app.post(
 
-    '/posts/{slugg}/comments/new',
-
-    body('slugg').escape().trim(),
+    '/posts/:slugg/comments/new',
 
     body('body').escape().trim(),
 
     auth,
 
     (req, res) => {
+
 
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
@@ -48,17 +45,20 @@ module.exports = (app) => {
       }
 
       Post.findOne({ slugg }).then((post) => {
+        if (!post) {
+          const message = `No post found.`
+          return res.status(400).json({ message })
+        }
+
         post.comments.push(comment)
 
         post.save().then((post) => {
           const message = `The comment has been created.`
-
-          res.json({ message, data: post })
+          return res.json({ message, data: post })
 
         }).catch(err => {
           const message = `The comment has not been created. Please try later.`
-
-          res.status(500).json({ message, data: err })
+          return res.status(500).json({ message, data: err })
         })
       })
     })

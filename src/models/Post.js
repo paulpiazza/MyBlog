@@ -11,7 +11,7 @@ const slugifyOptions = {
 const postSchema = mg.Schema({
   author: {
     type: String,
-    require: true
+    required: true
   },
 
   body: {
@@ -22,7 +22,7 @@ const postSchema = mg.Schema({
 
   slugg: {
     type: String,
-    required: [true, 'The slugg is required. It is ythe title of your post.'],
+    required: [true, 'The slugg is required. It is the title of your post.'],
     unique: true,
     set: (slugg) => { return slugify(slugg, slugifyOptions) }
   },
@@ -31,7 +31,7 @@ const postSchema = mg.Schema({
     {
       author: {
         type: String,
-        require: true
+        required: true
       },
 
       body: {
@@ -42,7 +42,8 @@ const postSchema = mg.Schema({
 
       createdAt: {
         type: Date,
-        require: true
+        required: true,
+        default: Date.now
       },
 
     }

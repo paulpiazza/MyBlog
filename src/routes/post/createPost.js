@@ -13,7 +13,7 @@ module.exports = (app) => {
  * @param {body} request.body.body - Body of the post
  * @param {slugg} request.body.slugg - Title of the post
  * @return 200 - success response - application/json
- * @return 400 - no user found - application/json
+ * @return 400 - client error - application/json
  * @return 500 - internal error - application/json
  * @example request - example payload
  * {
@@ -55,7 +55,7 @@ module.exports = (app) => {
           return res.status(400).json({ message: `${message}` })
         }
 
-        return res.json({ message: 'new post created', data: newPost })
+        return res.json({ message: 'new post created', data: post })
 
       } catch (error) {
         const message = `The post has not been created. Please try later.`
