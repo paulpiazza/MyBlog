@@ -9,7 +9,9 @@ const expressWinston = require('express-winston')
 const logger = require('./logs/logger')
 const errLogger = require('./logs/errorsLogger')
 const winston = require('winston/lib/winston/config')
-const expressJSDocSwagger = require('express-jsdoc-swagger');
+const swaggerJsdoc = require("swagger-jsdoc")
+const swaggerUi = require("swagger-ui-express")
+const swaggerOptions = require("./swagger")
 const port = process.env.PORT || 3000
 
 db.connect()
@@ -31,8 +33,12 @@ app.use(expressWinston.logger({
 
 app.set('view engine', 'ejs')
 
-const jsdocOptions = require('./jsdoc-options')
-expressJSDocSwagger(app)(jsdocOptions);
+const specs = swaggerJsdoc(swaggerOptions);
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(specs)
+)
 
 
 //todo : use Route() from Express

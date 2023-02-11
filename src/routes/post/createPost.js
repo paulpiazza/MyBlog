@@ -7,20 +7,34 @@ const logger = require('../../../logs/logger')
 module.exports = (app) => {
 
   /**
- * POST /posts/new
- * @summary create a post
- * @tags posts
- * @param {body} request.body.body - Body of the post
- * @param {slugg} request.body.slugg - Title of the post
- * @return 200 - success response - application/json
- * @return 400 - client error - application/json
- * @return 500 - internal error - application/json
- * @example request - example payload
- * {
- *     "slugg": "my first title",
- *     "body": "<h1>My title</h1><p>test paragraph</p>"
- *   }
- */
+   * @swagger
+   *   /posts/new:
+   *     post:
+   *       summary: Creates one slugg.
+   *       tags: [Posts]
+   *       requestBody:
+   *         description: Data for creating new post.
+   *         required: true
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/Post'
+   *       security:
+   *         - bearerAuth: []
+   *       responses:
+   *         "200":
+   *           description: Create one post.
+   *           contents: 
+   *             application/json:
+   *               schema:
+   *                 $ref: '#/components/schemas/Post'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
+  */
   app.post(
 
     '/posts/new',
@@ -59,6 +73,7 @@ module.exports = (app) => {
 
       } catch (error) {
         const message = `The post has not been created. Please try later.`
+        logger.error(`Client tries to create a post and fails. ${newPost.slugg}, ${newPost.body} .Error: ${message}`)
         return res.status(500).json({ message, data: error.message })
       }
 

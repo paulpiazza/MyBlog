@@ -37,3 +37,75 @@ ReferenceError: validationResult is not defined
     at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
     at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13) 
 
+Sat, 11 Feb 2023 14:58:05 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+
+Sat, 11 Feb 2023 14:58:41 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+
+Sat, 11 Feb 2023 14:58:56 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+
+Sat, 11 Feb 2023 14:58:58 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+
+Sat, 11 Feb 2023 14:58:58 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+
+Sat, 11 Feb 2023 15:00:33 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+
+Sat, 11 Feb 2023 15:04:41 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+
+Sat, 11 Feb 2023 15:05:26 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+
+Sat, 11 Feb 2023 15:06:02 GMT [error] : uncaughtException: Cannot read property 'split' of undefined
+TypeError: Cannot read property 'split' of undefined
+    at module.exports (/home/piazza/Dev/nodejs-learning/MyBlog/src/auth/auth.js:13:37)
+    at Layer.handle [as handle_request] (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/layer.js:95:5)
+    at next (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express/lib/router/route.js:144:13)
+    at middleware (/home/piazza/Dev/nodejs-learning/MyBlog/node_modules/express-validator/src/middlewares/check.js:16:13)
+    at processTicksAndRejections (internal/process/task_queues.js:95:5) 
+

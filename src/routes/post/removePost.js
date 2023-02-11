@@ -4,13 +4,33 @@ const auth = require('../../auth/auth')
 module.exports = (app) => {
 
   /**
-  * DELETE /posts/{slugg}
-  * @summary delete a post by slugg
-  * @tags posts
-  * @param {slugg} req.params.slugg - Title of the post
-  * @return 200 - success response - application/json
-  * @return 400 - no user found - application/json
-  * @return 500 - internal error - application/json
+   * @swagger
+   *   /posts/{slugg}:
+   *     delete:
+   *       summary: Remove one slugg.
+   *       tags: [Posts]
+   *       parameters:
+   *         - in: path
+   *           name: slugg
+   *           schema:
+   *             type: string
+   *           required: true
+   *           description: title of the post sluggified (the_post_title).
+   *       security:
+   *         - bearerAuth: []
+   *       responses:
+   *         "200":
+   *           description: Delete one post.
+   *           contents: 
+   *             application/json:
+   *               schema:
+   *                 $ref: '#/components/schemas/Post'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
   */
   app.delete('/posts/:slugg', auth, async (req, res) => {
 

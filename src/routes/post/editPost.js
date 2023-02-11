@@ -6,19 +6,41 @@ const logger = require('../../../logs/logger')
 module.exports = (app) => {
 
   /**
-   * PUT /posts/{slugg}
-   * @summary update a post
-   * @tags posts
-   * @param {body} request.body.body - Body of the post
-   * @param {slugg} request.body.slugg - title of the post
-   * @return 200 - success response - application/json
-   * @return 400 - no user found - application/json
-   * @return 500 - internal error - application/json
-   * @example request - example payload
-   * {
-   *     "slugg": "my first title",
-   *     "body": "<h1>My title</h1><p>test paragraph</p>"
-   *   }
+   * @swagger
+   *   /put/{slugg}:
+   *     put:
+   *       summary: Update one post by slugg.
+   *       tags: [Posts]
+   *       requestBody:
+   *         description: Data for updating a post.
+   *         required: true
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/Post'
+   *               required:
+   *       parameters:
+   *         - in: path
+   *           name: slugg
+   *           schema:
+   *             type: string
+   *           required: true
+   *           description: title of the post sluggified (the_post_title).
+   *       security:
+   *         - bearerAuth: []
+   *       responses:
+   *         "200":
+   *           description: Update one post.
+   *           contents: 
+   *             application/json:
+   *               schema:
+   *                 $ref: '#/components/schemas/Post'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
   */
   app.put(
 
