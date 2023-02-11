@@ -7,7 +7,7 @@ module.exports = (app) => {
    * @swagger
    *   /posts/{slugg}:
    *     delete:
-   *       summary: Remove one slugg.
+   *       summary: Remove one post by slugg.
    *       tags: [Posts]
    *       parameters:
    *         - in: path

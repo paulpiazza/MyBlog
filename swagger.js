@@ -9,7 +9,7 @@ module.exports = {
         info: {
             version: '1.0.0',
             title: 'My Blog',
-            description: 'This is an API that allows you to create and store posts. User can have an access and add comments to posts of others.',
+            description: '</>My Blog</i> allows user to store posts. Other users of the API can add comments on your post.',
             license: {
                 name: 'Copyrights, Paul Piazza',
             },
@@ -30,7 +30,7 @@ module.exports = {
 
                 Post: {
                     type: 'object',
-                    require: ['author, body, slugg, comments'],
+                    require: ['body', 'slugg'],
                     properties: {
                         slugg: {
                             type: 'string',
@@ -45,16 +45,27 @@ module.exports = {
 
                 Comment: {
                     type: 'object',
-                    require: ['author, body'],
+                    require: ['body'],
                     properties: {
-                        author: {
-                            type: 'string',
-                            description: 'the author of the comment'
-                        },
                         body: {
                             type: 'string',
                             description: "The content of the comment. May content some html tags."
                         },
+                    }
+                },
+
+                User: {
+                    type: 'object',
+                    require: ['email', 'password'],
+                    properties: {
+                        email: {
+                            type: 'string',
+                            description: 'The email is the Login of the user.'
+                        },
+                        password: {
+                            type: 'string',
+                            description: 'The password of the account.'
+                        }
                     }
                 }
             },

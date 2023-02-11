@@ -3,14 +3,26 @@ const User = require('../../models/User.js')
 
 module.exports = (app) => {
 
-/**
- * GET /users/new
- * @summary get all users
- * @tags users, account
- * @return 200 - success response - application/json
- * @return 400 - bad credentials - application/json
- * @return 500 - internal error - application/json
- */
+  /**
+   * @swagger
+   *   /users:
+   *     get:
+   *       summary: Get all account (only for admins).
+   *       tags: [Users]
+   *       security:
+   *         - bearerAuth: []
+   *       responses:
+   *         "200":
+   *           description: List of accounts.
+   *           contents: 
+   *             application/json:
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
+   */
   app.get('/users', auth, (req, res) => {
 
     User.find()

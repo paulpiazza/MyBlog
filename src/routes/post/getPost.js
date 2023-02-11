@@ -5,15 +5,6 @@ const logger = require('../../../logs/logger')
 module.exports = (app) => {
 
   /**
-  * GET /posts/{slugg}
-  * @summary get a post by slugg
-  * @tags posts
-  * @return 200 - success response - application/json
-  * @return 400 - no user found - application/json
-  * @return 500 - internal error - application/json
-  */
-
-  /**
    * @swagger
    *   /posts/{slugg}:
    *     get:

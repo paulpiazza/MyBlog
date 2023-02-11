@@ -8,21 +8,34 @@ const logger = require('../../../logs/logger')
 
 module.exports = (app) => {
 
-
   /**
-   * POST /users/new
-   * @summary create new account
-   * @tags Sign In
-   * @param {email} request.body.email - Email (Login)
-   * @param {password} request.body.password - Password
-   * @return 200 - success response - application/json
-   * @return 400 - bad credentials - application/json
-   * @return 500 - internal error - application/json
-   * @example request - example payload
-   * {
-   *  "email": "myname@myblog.net",
-   *  "password": "Qjd56H*24"
-   * }
+   * @swagger
+   *   /users/new:
+   *     post:
+   *       summary: Creates an account.
+   *       tags: [Users]
+   *       requestBody:
+   *         description: Data for the new account.
+   *         required: true
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/User'
+   *       security:
+   *         - bearerAuth: []
+   *       responses:
+   *         "200":
+   *           description: Create an account.
+   *           contents: 
+   *             application/json:
+   *               schema:
+   *                 $ref: '#/components/schemas/User'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
    */
   app.post(
 
@@ -40,7 +53,7 @@ module.exports = (app) => {
       .withMessage('minimum 8 characters'),
 
     (req, res) => {
-      
+
       const errors = validationResult(req)
       if (!errors.isEmpty()) {
         const msg = errors.array().map(err => err.param).join(', ')

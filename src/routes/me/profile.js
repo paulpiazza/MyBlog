@@ -4,13 +4,25 @@ const auth = require('../../auth/auth')
 module.exports = (app) => {
 
     /**
-     * GET /profile/me
-     * @summary get datas about my profile
-     * @tags profile
-     * @return 200 - success response - application/json
-     * @return 400 - no user found - application/json
-     * @return 500 - internal error - application/json
-     */
+     * @swagger
+     *   /profile/me:
+     *     get:
+     *       summary: get your profile.
+     *       tags: [Profile]
+     *       responses:
+     *         "200":
+     *           description: Get your profile (email and password).
+     *           contents: 
+     *             application/json:
+     *               schema:
+     *                 $ref: '#/components/schemas/User'
+     *         "400":
+     *           $ref: '#/components/responses/400'
+     *         "401":
+     *           $ref: '#/components/responses/401'
+     *         "500":
+     *           $ref: '#/components/responses/500'
+    */
     app.get('/profile/me', auth, (req, res) => {
 
         const userId = req.body.id

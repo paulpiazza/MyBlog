@@ -6,20 +6,48 @@ const logger = require('../../../logs/logger')
 module.exports = (app) => {
 
   /**
- * PUT /posts/{slugg}/comments/{id}
- * @summary update a comment in a post
- * @tags comments
- * @param {body} request.body.body - Body of the comment
- * @param {slugg} request.params.slugg - Title of the post
- * @param {id} request.params.id - id of the comment
- * @return 200 - success response - application/json
- * @return 400 - client error - application/json
- * @return 500 - internal error - application/json
- * @example request - example payload
- * {
- *     "body": "my comment"
- *   }
- */
+   * @swagger
+   *   /posts/{slugg}/comments/{id}:
+   *     put:
+   *       summary: Update one comment by comment id present in one post.
+   *       tags: [Comments]
+   *       requestBody:
+   *         description: Data for updating a comment.
+   *         required: true
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/Comment'
+   *               required:
+   *       parameters:
+   *         - in: path
+   *           name: slugg
+   *           schema:
+   *             type: string
+   *           required: true
+   *           description: title of the post sluggified (the_post_title).
+   *         - in: path
+   *           name: id
+   *           schema:
+   *             type: string
+   *           required: true
+   *           description: id of comment in the post.
+   *       security:
+   *         - bearerAuth: []
+   *       responses:
+   *         "200":
+   *           description: Update one comment.
+   *           contents: 
+   *             application/json:
+   *               schema:
+   *                 $ref: '#/components/schemas/Post'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
+  */
   app.put(
 
     '/posts/:slugg/comments/:id',

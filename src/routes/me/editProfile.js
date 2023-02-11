@@ -10,20 +10,34 @@ const logger = require('../../../logs/logger')
 module.exports = (app) => {
 
   /**
- * PUT /profile/me
- * @summary change your email or your password
- * @tags profile
- * @param {email} request.body.email - Email (Login)
- * @param {password} request.body.password - Password
- * @return 200 - success response - application/json
- * @return 400 - no user found - application/json
- * @return 500 - internal error - application/json
- * @example request - example payload
- * {
- *  "email": "myname@myblog.net",
- *  "password": "Qjd56H*24"
- * }
- */
+   * @swagger
+   *   /profile/me:
+   *     put:
+   *       summary: Update your account.
+   *       tags: [Profile]
+   *       security:
+   *         - bearerAuth: []
+   *       requestBody:
+   *         description: Data for updating your profile.
+   *         required: true
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/User'
+   *       responses:
+   *         "200":
+   *           description: Update email or/and password of your account.
+   *           contents: 
+   *             application/json:
+   *               schema:
+   *                 $ref: '#/components/schemas/User'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
+  */
   app.put(
 
     '/profile/me',

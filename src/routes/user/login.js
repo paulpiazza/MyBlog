@@ -12,19 +12,33 @@ const privateKey = process.env.PRIVATE_KEY_JWT_TOKEN
 module.exports = (app) => {
 
   /**
-   * POST /users/login
-   * @summary Log in and get access to your account
-   * @tags Log In
-   * @param {email} request.body.email - Email (login)
-   * @param {password} request.body.password - Password
-   * @return 200 - success response - application/json
-   * @return 400 - bad credentials - application/json
-   * @return 500 - internal error - application/json
-   * @example request - example payload
-   * {
-   *  "email": "myname@myblog.net",
-   *  "password": "Qjd56H*24"
-   * }
+   * @swagger
+   *   /users/login:
+   *     post:
+   *       summary: Log in with your credentials and get your token.
+   *       tags: [Users]
+   *       requestBody:
+   *         description: credentials (email and password).
+   *         required: true
+   *         content:
+   *           application/json:
+   *             schema:
+   *               $ref: '#/components/schemas/User'
+   *       security:
+   *         - bearerAuth: []
+   *       responses:
+   *         "200":
+   *           description: Log in.
+   *           contents: 
+   *             application/json:
+   *               schema:
+   *                 $ref: '#/components/schemas/User'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
    */
   app.post(
 

@@ -6,13 +6,27 @@ const logger = require('../../../logs/logger')
 module.exports = (app) => {
 
   /**
- * DELETE /profile/me
- * @summary delete your account
- * @tags profile
- * @return 200 - success response - application/json
- * @return 400 - no user found - application/json
- * @return 500 - internal error - application/json
- */
+   * @swagger
+   *   /profile/me:
+   *     delete:
+   *       summary: Remove your account.
+   *       tags: [Profile]
+   *       security:
+   *         - bearerAuth: []
+   *       responses:
+   *         "200":
+   *           description: Delete your account.
+   *           contents: 
+   *             application/json:
+   *               schema:
+   *                 $ref: '#/components/schemas/User'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
+  */
   app.delete('/profile/me', auth, async (req, res) => {
 
     const userId = req.body.id

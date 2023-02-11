@@ -2,15 +2,35 @@ const User = require('../../models/User.js')
 const auth = require('../../auth/auth')
 
 module.exports = (app) => {
-
+  
   /**
- * GET /users/{id}
- * @summary get all users
- * @tags users, account
- * @return 200 - success response - application/json
- * @return 400 - bad credentials - application/json
- * @return 500 - internal error - application/json
- */
+   * @swagger
+   *   /users/{id}:
+   *     get:
+   *       summary: Get one account by id (only for admins).
+   *       tags: [Users]
+   *       security:
+   *         - bearerAuth: []
+   *       parameters:
+   *         - in: path
+   *           name: id
+   *           schema:
+   *             type: string
+   *           required: true
+   *           description: id of the account.
+   *       responses:
+   *         "200":
+   *           description: data of an account.
+   *           contents: 
+   *             application/json:
+   *                 $ref: '#/components/schemas/User'
+   *         "400":
+   *           $ref: '#/components/responses/400'
+   *         "401":
+   *           $ref: '#/components/responses/401'
+   *         "500":
+   *           $ref: '#/components/responses/500'
+   */
   app.get('/users/:id', auth, (req, res) => {
 
     const userId = req.params.id
