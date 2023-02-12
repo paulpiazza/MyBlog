@@ -53,7 +53,7 @@ Une fois le compte initialisé, entrez votre email et votre password pour vous l
 
 Il est possible d'utiliser le compte administrateur de test implémenté dans le fichier `.env`.
 
-Copier le token de la réponse http et le copier dans le formulaire `Authorization` de la documentation de l'API.
+Copier le token de la réponse http et le copier dans le formulaire `Authorize` de la documentation de l'API.
 
 il est maintenant possible d'utiliser l'ensemble des routes en tant qu'utilisateur ou administrateur si vous avez choisi le compte de test.
 
