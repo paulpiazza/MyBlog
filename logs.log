@@ -776,3 +776,15 @@ Sat, 11 Feb 2023 19:00:43 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
 Sat, 11 Feb 2023 19:00:43 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
 Sat, 11 Feb 2023 19:00:43 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
 Sat, 11 Feb 2023 19:00:43 GMT [info] : HTTP GET /api-docs/favicon-32x32.png
+Sun, 12 Feb 2023 08:05:21 GMT [info] : HTTP GET /
+Sun, 12 Feb 2023 08:05:22 GMT [info] : HTTP GET /favicon.ico
+Sun, 12 Feb 2023 08:05:25 GMT [info] : HTTP GET /api-docs/
+Sun, 12 Feb 2023 08:05:25 GMT [info] : HTTP GET /api-docs/swagger-ui.css
+Sun, 12 Feb 2023 08:05:25 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
+Sun, 12 Feb 2023 08:05:25 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
+Sun, 12 Feb 2023 08:05:25 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
+Sun, 12 Feb 2023 08:05:35 GMT [info] : HTTP GET /posts
+Sun, 12 Feb 2023 08:06:24 GMT [info] : HTTP GET /api-docs/swagger-ui.css
+Sun, 12 Feb 2023 08:06:25 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js.map
+Sun, 12 Feb 2023 08:06:25 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js.map
+Sun, 12 Feb 2023 08:06:25 GMT [info] : HTTP GET /api-docs/swagger-ui.css.map

@@ -16,6 +16,7 @@ module.exports = (app) => {
    *           description: List of accounts.
    *           contents: 
    *             application/json:
+   *                 $ref: '#/components/schemas/User'
    *         "400":
    *           $ref: '#/components/responses/400'
    *         "401":

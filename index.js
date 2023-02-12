@@ -45,12 +45,6 @@ app.use(
 const sources = path.join(__dirname, 'src', 'routes')
 
 
-// GET root
-const sourcesRoot = path.join(sources, 'root')
-require(path.join(sourcesRoot, 'main.js'))(app)
-require(path.join(sourcesRoot, 'signin.js'))(app)
-require(path.join(sourcesRoot, 'login.js'))(app)
-
 // post
 const sourcesPost = path.join(sources, 'post')
 require(path.join(sourcesPost, 'createPost.js'))(app)
