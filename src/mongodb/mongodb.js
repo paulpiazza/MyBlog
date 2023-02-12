@@ -23,6 +23,7 @@ async function connect() {
 
     if (process.env.NODE_ENV === 'dev') {
       await require('../../fixtures/usersFixtures')()
+      await require('../../fixtures/postsFixtures')()
     }
 
     return mg
