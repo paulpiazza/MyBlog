@@ -14,9 +14,9 @@ Les articles sont publics à tous les internautes.
 
 ## Démarrage du projet
 
-MongoDB doit être installé sur votre ordinateur. *MyBlog* a besoin d'utiliser une base de données en local pour l'environnement de développement et de test. L'environnement de production n'a pas été implémentée. Consulter le [manuel d'installation de MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/).
+MongoDB doit être installé sur votre ordinateur. *MyBlog* a besoin d'utiliser une base de données en local pour l'environnement de développement et de test. L'environnement de production n'a pas été implémenté. Consulter le [manuel d'installation de MongoDB](https://www.mongodb.com/docs/manual/administration/install-community/).
 
-Au minimum, la version 18 de nodejs doit être installée sur votre ordinateur. Consulter la [documentation de NodeJs](https://nodejs.org/en/download/) ou la [documentation de nvm](https://www.linode.com/docs/guides/how-to-install-use-node-version-manager-nvm/) dans le cas de plusieurs version de NodeJS installée sur votre ordinateur.
+Au minimum, la version 18 de nodejs doit être installée sur votre ordinateur. Consulter la [documentation de NodeJs](https://nodejs.org/en/download/) ou la [documentation de nvm](https://www.linode.com/docs/guides/how-to-install-use-node-version-manager-nvm/) dans le cas de plusieurs version de NodeJS installées sur votre ordinateur.
 
 Après avoir cloné le projet sur GitHub, placez vous dans le dépôt et installez les dépendances :
 
