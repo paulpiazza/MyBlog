@@ -1,5 +1,6 @@
 const User = require('../../models/User.js')
 const auth = require('../../auth/auth')
+const { param, validationResult } = require('express-validator')
 
 module.exports = (app) => {
   
@@ -31,7 +32,23 @@ module.exports = (app) => {
    *         "500":
    *           $ref: '#/components/responses/500'
    */
-  app.get('/users/:id', auth, (req, res) => {
+  app.get(
+    
+    '/users/:id',
+
+    param('id').not().isEmpty().trim().escape(),
+    
+    auth,
+    
+    (req, res) => {
+
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        const msg = errors.array().map(err => err.param).join(', ')
+        const errMsg = `Errors on ${msg}.`
+        return res.status(400).json({ message: errMsg })
+      }
+
 
     const userId = req.params.id
 

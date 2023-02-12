@@ -1,6 +1,8 @@
 const auth = require('../../auth/auth')
 const Post = require('../../models/Post.js')
 const logger = require('../../../logs/logger')
+const { param, validationResult } = require('express-validator')
+
 
 module.exports = (app) => {
 
@@ -31,26 +33,40 @@ module.exports = (app) => {
    *         "500":
    *           $ref: '#/components/responses/500'
   */
-  app.get('/posts/:slugg', (req, res) => {
+  app.get(
 
-    const slugg = req.params.slugg
+    '/posts/:slugg',
 
-    return Post.findOne({ slugg }).then((post) => {
-      const msg = `Find ${post.slugg}.`
+    param('slugg').not().isEmpty().trim().escape(),
 
-      if (!post) {
-        const message = `No post found.`
-        return res.status(400).json({ message })
+    (req, res) => {
+
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        const msg = errors.array().map(err => err.param).join(', ')
+        const errMsg = `Errors on ${msg}.`
+        return res.status(400).json({ message: errMsg })
       }
 
-      return res.json({ message: msg, data: post })
 
-    }).catch(err => {
-      const message = `No posts found. Please try later.`
-      logger.error(`Client tries to get ${slugg}. Error:${message}`)
-      return res.status(500).json({ message: message, data: err })
+      const slugg = req.params.slugg
+
+      return Post.findOne({ slugg }).then((post) => {
+        const msg = `Find ${post.slugg}.`
+
+        if (!post) {
+          const message = `No post found.`
+          return res.status(400).json({ message })
+        }
+
+        return res.json({ message: msg, data: post })
+
+      }).catch(err => {
+        const message = `No posts found. Please try later.`
+        logger.error(`Client tries to get ${slugg}. Error:${message}`)
+        return res.status(500).json({ message: message, data: err })
+
+      })
 
     })
-
-  })
 }

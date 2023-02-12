@@ -32,9 +32,7 @@ module.exports = async () => {
 
     } catch (error) {
 
-        if (error) {
-            console.error("Loading fixtures Users failed.", error.message())
-        }
+        console.error("Loading fixtures Users failed.", error.message())
 
     }
 }

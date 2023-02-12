@@ -1,5 +1,7 @@
 const Post = require('../../models/Post.js')
 const auth = require('../../auth/auth')
+const { param, validationResult } = require('express-validator')
+
 
 module.exports = (app) => {
 
@@ -32,28 +34,43 @@ module.exports = (app) => {
    *         "500":
    *           $ref: '#/components/responses/500'
   */
-  app.delete('/posts/:slugg', auth, async (req, res) => {
+  app.delete(
 
-    const slugg = req.params.slugg
+    '/posts/:slugg',
 
-    try {
+    param('slugg').not().isEmpty().trim().escape(),
 
-      const post = await Post.findOne({ slugg })
+    auth,
 
-      const count = await Post.deleteOne({ slugg })
+    async (req, res) => {
 
-      if (count === 0) {
-        const message = 'No post found.'
-        return res.status(400).json({ message })
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        const msg = errors.array().map(err => err.param).join(', ')
+        const errMsg = `Errors on ${msg}.`
+        return res.status(400).json({ message: errMsg })
       }
 
-      return res.json({ message: `${count.deletedCount} post(s) deleted`, data: post })
+      const slugg = req.params.slugg
 
-    } catch (error) {
-      const message = `The post has not been deleted. Please try later.`
-      res.status(500).json({ message, data: error.message })
+      try {
 
-    }
+        const post = await Post.findOne({ slugg })
 
-  })
+        const count = await Post.deleteOne({ slugg })
+
+        if (count === 0) {
+          const message = 'No post found.'
+          return res.status(400).json({ message })
+        }
+
+        return res.json({ message: `${count.deletedCount} post(s) deleted`, data: post })
+
+      } catch (error) {
+        const message = `The post has not been deleted. Please try later.`
+        res.status(500).json({ message, data: error.message })
+
+      }
+
+    })
 }

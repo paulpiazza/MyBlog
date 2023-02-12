@@ -9,6 +9,8 @@ module.exports = (app) => {
      *     get:
      *       summary: get your profile.
      *       tags: [Profile]
+     *       security:
+     *         - bearerAuth: []
      *       responses:
      *         "200":
      *           description: Get your profile (email and password).

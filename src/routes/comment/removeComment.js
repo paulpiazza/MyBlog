@@ -1,5 +1,6 @@
 const auth = require('../../auth/auth')
 const Post = require('../../models/Post.js')
+const { param, validationResult } = require('express-validator')
 
 module.exports = (app) => {
 
@@ -38,23 +39,40 @@ module.exports = (app) => {
    *         "500":
    *           $ref: '#/components/responses/500'
   */
-  app.delete('/posts/:slugg/comments/:id', auth, (req, res) => {
+  app.delete(
 
-    const slugg = req.params.slugg
-    const idComment = req.params.id
+    '/posts/:slugg/comments/:id',
 
-    Post.findOne({ slugg }).then((post) => {
+    param('slugg').not().isEmpty().trim().escape(),
 
-      post.comments = post.comments.filter(c => c._id != idComment && c.author === req.body.id)
+    param('id').not().isEmpty().trim().escape(),
 
-      post.save().then((postUpdated) => {
-        const message = `The comment ${idComment} has been deleted.`
-        return res.json({ message, data: postUpdated })
+    auth,
 
-      }).catch(err => {
-        const message = `The comment has not been deleted. Please try later.`
-        return res.status(500).json({ message, data: err })
+    (req, res) => {
+
+      const errors = validationResult(req)
+      if (!errors.isEmpty()) {
+        const msg = errors.array().map(err => err.param).join(', ')
+        const errMsg = `Errors on ${msg}.`
+        return res.status(400).json({ message: errMsg })
+      }
+
+      const slugg = req.params.slugg
+      const idComment = req.params.id
+
+      Post.findOne({ slugg }).then((post) => {
+
+        post.comments = post.comments.filter(c => c._id != idComment && c.author === req.body.id)
+
+        post.save().then((postUpdated) => {
+          const message = `The comment ${idComment} has been deleted.`
+          return res.json({ message, data: postUpdated })
+
+        }).catch(err => {
+          const message = `The comment has not been deleted. Please try later.`
+          return res.status(500).json({ message, data: err })
+        })
       })
     })
-  })
 }

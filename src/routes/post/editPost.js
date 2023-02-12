@@ -1,13 +1,13 @@
 const auth = require('../../auth/auth')
 const Post = require('../../models/Post.js')
-const { body, validationResult } = require('express-validator')
+const { body, validationResult, param } = require('express-validator')
 const logger = require('../../../logs/logger')
 
 module.exports = (app) => {
 
   /**
    * @swagger
-   *   /put/{slugg}:
+   *   /posts/{slugg}:
    *     put:
    *       summary: Update one post by slugg.
    *       tags: [Posts]
@@ -45,6 +45,8 @@ module.exports = (app) => {
   app.put(
 
     '/posts/:slugg',
+
+    param('slugg').not().isEmpty().trim().escape(),
 
     body('slugg').escape().trim().optional(),
 

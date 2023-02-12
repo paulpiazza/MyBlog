@@ -1,6 +1,6 @@
 const auth = require('../../auth/auth')
 const Post = require('../../models/Post.js')
-const { body, validationResult } = require('express-validator')
+const { body, param, validationResult } = require('express-validator')
 const logger = require('../../../logs/logger')
 
 module.exports = (app) => {
@@ -20,7 +20,7 @@ module.exports = (app) => {
    *               $ref: '#/components/schemas/Comment'
    *       parameters:
    *         - in: path
-   *           name: post
+   *           name: slugg
    *           schema:
    *             type: string
    *           required: true
@@ -45,12 +45,13 @@ module.exports = (app) => {
 
     '/posts/:slugg/comments/new',
 
+    param('slugg').not().isEmpty().trim().escape(),
+
     body('body').escape().trim(),
 
     auth,
 
     (req, res) => {
-
 
       const errors = validationResult(req)
       if (!errors.isEmpty()) {

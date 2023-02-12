@@ -1,6 +1,6 @@
 const auth = require('../../auth/auth')
 const Post = require('../../models/Post.js')
-const { body, validationResult } = require('express-validator')
+const { body, param, validationResult } = require('express-validator')
 const logger = require('../../../logs/logger')
 
 module.exports = (app) => {
@@ -51,6 +51,10 @@ module.exports = (app) => {
   app.put(
 
     '/posts/:slugg/comments/:id',
+
+    param('slugg').not().isEmpty().trim().escape(),
+
+    param('id').not().isEmpty().trim().escape(),
 
     body('body').escape().trim(),
 

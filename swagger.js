@@ -9,7 +9,11 @@ module.exports = {
         info: {
             version: '1.0.0',
             title: 'My Blog',
-            description: '</>My Blog</i> allows user to store posts. Other users of the API can add comments on your post.',
+            description: '<b>Getting Started : </b> ' +
+                'This API allows users to manage and store posts. Other users of the API can add comments on your post. ' +
+                'Get starting by creating an account : <a href="#/Users/post_users_new">/users/new (Sign In)</a> ' +
+                'Then you can get your token by posting your credentials here : <a href="#/Users/post_users_login">/users/login (Log In)</a> ' +
+                'Copy and paste your token in the authorization form : <a href=".authorize">Authorize</a>',
             license: {
                 name: 'Copyrights, Paul Piazza',
             },
