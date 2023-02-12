@@ -7,8 +7,8 @@ const saltRounds = 10;
 module.exports = async () => {
 
     const count = await User.find().count()
-    
-    if(count > 0) {
+
+    if (count > 0) {
         await User.deleteMany()
         await User.syncIndexes()
     }
@@ -25,14 +25,17 @@ module.exports = async () => {
         }
     ]
 
-    User.insertMany(users, (err, docs) => {
-       if(err) {
-           console.error("Loading fixtures Users failed.", err)
-           return
-       }
+    try {
 
-       console.info(`${docs.length} Users fixtures added.`)
-        
-    })
+        const docs = await User.insertMany(users)
+        console.info(`${docs.length} Users fixtures added.`)
+
+    } catch (error) {
+
+        if (error) {
+            console.error("Loading fixtures Users failed.", error.message())
+        }
+
+    }
 }
 

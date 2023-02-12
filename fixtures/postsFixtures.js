@@ -7,18 +7,13 @@ const saltRounds = 10
 
 module.exports = async () => {
 
-    // create a testing user
+    // find a testing user
 
-    const userTest = {
-        email: "addpostsfixtures@myblob.net",
-        password: await bcrypt.hash(process.env.ADMIN_PWD_TEST, saltRounds),
-        role: 'User'
-    }
-
-    let user = await User.findOne({ email: userTest.email })
+    const user = await User.findOne({ email: "user@myblog.net" }).exec()
 
     if (!user) {
-        user = await User.create(userTest)
+        console.error('Before creating posts fixtures you should insert user (user@myblog.net) in the database.')
+        return false
     }
 
 
@@ -52,14 +47,15 @@ module.exports = async () => {
         }
     ]
 
-    Post.insertMany(posts, (err, docs) => {
-        if (err) {
-            console.error("Loading fixtures Posts failed.", err)
-            return
-        }
+    try {
 
+        const docs = await Post.insertMany(posts)
         console.info(`${docs.length} Posts fixtures added.`)
 
-    })
+    } catch (error) {
+
+        console.error("Loading fixtures Posts failed.", error.message())
+
+    }
 }
 
