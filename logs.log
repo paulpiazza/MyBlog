@@ -803,3 +803,9 @@ Sun, 12 Feb 2023 08:14:51 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-
 Sun, 12 Feb 2023 08:14:54 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
 Sun, 12 Feb 2023 08:14:54 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
 Sun, 12 Feb 2023 08:14:54 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
+Sun, 12 Feb 2023 08:30:48 GMT [info] : HTTP GET /api-docs/
+Sun, 12 Feb 2023 08:30:48 GMT [info] : HTTP GET /api-docs/swagger-ui.css
+Sun, 12 Feb 2023 08:30:48 GMT [info] : HTTP GET /api-docs/swagger-ui-bundle.js
+Sun, 12 Feb 2023 08:30:48 GMT [info] : HTTP GET /api-docs/swagger-ui-standalone-preset.js
+Sun, 12 Feb 2023 08:30:48 GMT [info] : HTTP GET /api-docs/swagger-ui-init.js
+Sun, 12 Feb 2023 08:30:49 GMT [info] : HTTP GET /api-docs/favicon-32x32.png

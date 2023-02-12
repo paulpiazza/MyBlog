@@ -5,11 +5,11 @@ const app = require('../index')
 
 chai.use(chaiHttp);
 
-describe('when the client request root /', () => {
+describe('when the client request api docs swagger /api-docs', () => {
     it('should send a status 200', (done) => {
         chai
             .request(app)
-            .get('/')
+            .get('/api-docs')
             .end((err, res) => {
                 assert.equal(res.status, 200);
                 done();
